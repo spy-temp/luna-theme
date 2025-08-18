@@ -1,54 +1,96 @@
 /**
- * @name Luna Theme - Components
- * @version 1.1
- * @description Messages, boutons, inputs, cartes arrondis
+ * Luna Theme — COMPONENTS (update compacte)
+ * Tous les éléments interactifs, arrondis + styles cohérents
  */
 
 /* 💬 Messages */
 [class*="message"] {
-    border-radius: var(--radius-large) !important;
-    background: var(--luna-bg-card);
-    margin: 6px 0;
-    padding: 8px 12px;
-    transition: background 0.3s ease;
+    border-radius: 10px !important;
+    background: rgba(30, 41, 59, 0.35) !important;
+    margin-bottom: 4px;
+    padding: 6px 10px !important;
+    transition: background 0.2s ease;
 }
 [class*="message"]:hover {
-    background: rgba(30, 41, 59, 0.7);
+    background: rgba(59, 130, 246, 0.25) !important;
+}
+
+/* 😀 Emojis, petits encadrés (reactions, mentions, tags) */
+[class*="emoji"],
+[class*="reaction"],
+[class*="mention"],
+[class*="badge"],
+[class*="tag"] {
+    border-radius: 6px !important;
+    padding: 2px 6px !important;
+    font-size: 0.9em;
+    background: rgba(59, 130, 246, 0.25) !important;
+    color: var(--luna-text) !important;
 }
 
 /* 🔘 Boutons */
 [class*="button"] {
-    border-radius: var(--radius-pill) !important;
-    background: linear-gradient(135deg, var(--luna-accent), var(--luna-accent-dark));
-    color: #fff !important;
-    transition: all 0.2s ease;
+    border-radius: 999px !important; /* pill */
+    padding: 4px 12px !important;
+    font-size: 0.9em !important;
+    background: linear-gradient(135deg, var(--luna-accent), var(--luna-accent-deep)) !important;
+    color: white !important;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
 [class*="button"]:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-strong);
+    transform: scale(1.04);
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
 }
 
-/* 🔎 Inputs et search bar */
+/* 🔎 Barre de recherche / inputs */
 [class*="searchBar"],
-[class*="input"] {
-    border-radius: var(--radius-pill);
-    background: rgba(15, 23, 42, 0.6);
-    color: var(--luna-text);
+input,
+textarea {
+    border-radius: 8px !important;
+    background: rgba(15, 23, 42, 0.6) !important;
+    padding: 6px 10px !important;
+    font-size: 0.9em !important;
+    color: var(--luna-text) !important;
 }
 
-/* 📦 Cartes & panneaux */
-[class*="card"], 
-[class*="container"], 
-[class*="wrapper"] {
-    border-radius: var(--radius-medium);
-    background: var(--luna-bg-card);
-    box-shadow: var(--shadow-soft);
+/* 📦 Cartes (serveurs, user profiles, embed containers) */
+[class*="card"],
+[class*="embed"],
+[class*="userPopout"],
+[class*="container"] {
+    border-radius: 10px !important;
+    background: rgba(15, 23, 42, 0.6) !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4) !important;
+    padding: 8px !important;
 }
 
-/* 🏷 Mentions */
-.mention {
-    background: var(--luna-accent) !important;
-    color: #fff !important;
-    border-radius: var(--radius-pill);
-    padding: 2px 6px;
+/* 📜 Menus (popouts, context menus, modals) */
+[class*="menu"],
+[class*="modal"],
+[class*="popout"] {
+    border-radius: 10px !important;
+    background: rgba(11, 13, 23, 0.85) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 6px !important;
+}
+
+/* 🔔 Notifications / mentions */
+[class*="mention"] {
+    background: rgba(59, 130, 246, 0.25) !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    color: var(--luna-text-inverse) !important;
+}
+[class*="mention"]:hover {
+    background: rgba(59, 130, 246, 0.4) !important;
+}
+
+/* 🌌 Tooltips */
+[class*="tooltip"] {
+    background: rgba(15, 23, 42, 0.9) !important;
+    color: white !important;
+    border-radius: 6px !important;
+    padding: 4px 8px !important;
+    font-size: 0.85em !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.6) !important;
 }
