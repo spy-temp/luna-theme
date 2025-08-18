@@ -1,0 +1,47 @@
+/* 💬 Messages */
+.messageListItem__050f9 {
+    border-radius: var(--message-radius) !important;
+    background: rgba(30, 41, 59, 0.45) !important;
+    margin-bottom: 6px !important;
+    padding: var(--message-padding-top) var(--message-padding-side) !important;
+    backdrop-filter: blur(6px);
+}
+
+/* 📦 Cartes */
+.card-2TuZPZ {
+    border-radius: var(--card-radius) !important;
+    background: rgba(15, 23, 42, 0.7) !important;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.25);
+    backdrop-filter: blur(8px);
+}
+
+/* 🔘 Boutons arrondis */
+.button-38aScr {
+    border-radius: 999px !important;
+    background: linear-gradient(135deg, #2563eb, #1e40af) !important;
+    color: #fff !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.button-38aScr:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 14px rgba(59, 130, 246, 0.7);
+}
+
+/* 🔎 Barre de recherche */
+.searchBar-3TnChZ {
+    border-radius: var(--input-height) !important;
+    background: rgba(15, 23, 42, 0.6) !important;
+    backdrop-filter: blur(6px);
+}
+
+/* 📜 Scrollbar stylée */
+::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #3b82f6, #1e40af);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
