@@ -1,53 +1,32 @@
 :root {
-  /* --- Couleurs principales --- */
-  --accent-hue: 220;
-  --accent-saturation: 90%;
-  --accent-lightness: 55%;
+    /* 🎨 Couleurs principales */
+    --brand-experiment: #3b82f6; /* Accent bleu */
+    --brand-experiment-560: #1e40af;
+    --brand-experiment-600: #2563eb;
 
-  /* Surfaces semi-transparentes pour laisser voir le fond */
-  --background-primary: rgba(11, 13, 23, 0.72);
-  --background-secondary: rgba(15, 17, 28, 0.66);
-  --background-tertiary: rgba(19, 22, 37, 0.60);
-  --background-floating: rgba(13, 15, 26, 0.70);
+    --background-primary: #0b0d17;   /* Zone centrale */
+    --background-secondary: #0f111c; /* Sidebar */
+    --background-tertiary: #131625;  /* En-têtes */
+    --background-floating: #0d0f1a;  /* Popups */
 
-  --text-normal: #e2e8f0;
-  --text-muted: #94a3b8;
-  --channels-default: #8aa0bf;
+    --channeltextarea-background: rgba(15,23,42,0.55);
 
-  /* Rounds */
-  --message-radius: 18px;
-  --card-radius: 16px;
+    --text-normal: #e2e8f0;
+    --text-muted: #94a3b8;
 
-  /* Spacing */
-  --message-padding-top: 8px;
-  --message-padding-side: 12px;
+    /* 🌙 Messages */
+    --message-radius: 18px;
+    --message-padding-top: 8px;
+    --message-padding-side: 12px;
 
-  /* Inputs / buttons */
-  --button-height: 36px;
-  --button-padding: 0 20px;
-  --input-height: 36px;
-  --input-padding: 0 12px;
+    /* 📦 Cartes */
+    --card-radius: 16px;
 
-  /* Popouts / modals */
-  --popout-radius: 14px;
+    /* 🔘 Boutons */
+    --button-height: 36px;
+    --button-padding: 0 20px;
 
-  /* Scrollbars */
-  --scrollbar-width: 8px;
-  --scrollbar-thin-width: 5px;
-
-  /* Accent dérivé */
-  --accent: hsl(var(--accent-hue), var(--accent-saturation), var(--accent-lightness));
-}
-
-/* Forcer Discord à utiliser des surfaces un peu transparentes */
-.theme-dark, .theme-light {
-  --background-primary: var(--background-primary);
-  --background-secondary: var(--background-secondary);
-  --background-tertiary: var(--background-tertiary);
-  --background-floating: var(--background-floating);
-}
-
-/* Neutraliser d'éventuels fonds opaques */
-html, body, #app-mount {
-  background: transparent !important;
+    /* 📜 Scrollbar */
+    --scrollbar-width: 8px;
+    --scrollbar-thin-width: 5px;
 }
