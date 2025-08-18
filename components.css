@@ -1,126 +1,54 @@
 /**
- * Luna Theme - Components
- * Styles appliqués aux messages, boutons, inputs, cartes, mentions, etc.
+ * @name Luna Theme - Components
+ * @version 1.1
+ * @description Messages, boutons, inputs, cartes arrondis
  */
 
-/* === 💬 Messages === */
-.message__80c6a {
+/* 💬 Messages */
+[class*="message"] {
     border-radius: var(--radius-large) !important;
-    background: rgba(22, 28, 45, 0.45) !important;
-    margin-bottom: 6px;
+    background: var(--luna-bg-card);
+    margin: 6px 0;
     padding: 8px 12px;
-    transition: background var(--transition-fast);
+    transition: background 0.3s ease;
 }
-.message__80c6a:hover {
-    background: rgba(30, 41, 59, 0.55) !important;
-}
-
-/* === 👤 Mentions @user === */
-.mention {
-    background: var(--mention-bg) !important;
-    border: 1px solid var(--mention-border) !important;
-    color: var(--mention-text) !important;
-    border-radius: var(--radius-medium);
-    padding: 0 6px;
-    font-weight: 500;
+[class*="message"]:hover {
+    background: rgba(30, 41, 59, 0.7);
 }
 
-/* === #️⃣ Tags (ex: #général) === */
-.channelMention {
-    background: var(--tag-bg) !important;
-    border: 1px solid var(--tag-border);
-    color: var(--tag-text);
-    border-radius: var(--radius-medium);
-    padding: 0 5px;
-}
-
-/* === 🏷️ Badges (Nitro, Bot, Staff) === */
-.botTag {
-    background: var(--badge-bg) !important;
-    color: var(--badge-text) !important;
-    border-radius: var(--radius-small);
-    padding: 0 4px;
-    font-size: 11px;
-    font-weight: 600;
-}
-
-/* === 🔘 Boutons === */
-.button__66e8c {
-    border-radius: var(--radius-round) !important;
-    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-active));
+/* 🔘 Boutons */
+[class*="button"] {
+    border-radius: var(--radius-pill) !important;
+    background: linear-gradient(135deg, var(--luna-accent), var(--luna-accent-dark));
     color: #fff !important;
-    height: var(--button-height);
-    padding: var(--button-padding);
-    box-shadow: var(--shadow-soft);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    transition: all 0.2s ease;
 }
-.button__66e8c:hover {
+[class*="button"]:hover {
     transform: scale(1.05);
-    box-shadow: var(--glow-accent);
-}
-.button__66e8c:active {
-    transform: scale(0.98);
-}
-
-/* === 📝 Inputs (barre de recherche, chat input) === */
-.input__0f084, .textArea__74543 {
-    background: var(--input-bg) !important;
-    border-radius: var(--radius-medium) !important;
-    border: 1px solid var(--input-border);
-    color: var(--color-text-normal);
-    padding: var(--input-padding);
-    height: var(--input-height);
-    transition: border var(--transition-fast);
-}
-.input__0f084:focus, .textArea__74543:focus {
-    border: 1px solid var(--color-accent);
-    box-shadow: var(--glow-accent);
-}
-
-/* === 📦 Cartes (profils, embeds, menus) === */
-.container__7c79d, .embedFull__8dc21 {
-    border-radius: var(--radius-large) !important;
-    background: rgba(15, 23, 42, 0.7);
     box-shadow: var(--shadow-strong);
-    padding: 10px;
-    margin-bottom: 8px;
 }
 
-/* === 📜 Scrollbar === */
-::-webkit-scrollbar {
-    width: var(--scrollbar-width);
+/* 🔎 Inputs et search bar */
+[class*="searchBar"],
+[class*="input"] {
+    border-radius: var(--radius-pill);
+    background: rgba(15, 23, 42, 0.6);
+    color: var(--luna-text);
 }
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--color-accent), var(--color-accent-active));
+
+/* 📦 Cartes & panneaux */
+[class*="card"], 
+[class*="container"], 
+[class*="wrapper"] {
     border-radius: var(--radius-medium);
-}
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-/* === 🖼️ Avatars === */
-.avatar__991e2 {
-    border-radius: var(--avatar-radius) !important;
+    background: var(--luna-bg-card);
     box-shadow: var(--shadow-soft);
 }
 
-/* === 🔍 Barre de recherche === */
-.searchBar__621ec {
-    border-radius: var(--radius-large);
-    background: var(--input-bg);
-    border: 1px solid var(--input-border);
-    transition: border var(--transition-fast);
-}
-.searchBar__621ec:hover {
-    border-color: var(--color-accent);
-}
-
-/* === 💡 Tooltips === */
-.tooltip__01384 {
-    background: rgba(0,0,0,0.85) !important;
-    border-radius: var(--radius-small);
-    color: var(--color-text-inverse);
-    padding: 6px 10px;
-    font-size: 12px;
-    box-shadow: var(--shadow-soft);
+/* 🏷 Mentions */
+.mention {
+    background: var(--luna-accent) !important;
+    color: #fff !important;
+    border-radius: var(--radius-pill);
+    padding: 2px 6px;
 }

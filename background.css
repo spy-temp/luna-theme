@@ -1,135 +1,180 @@
-/**
- * Luna Theme - Background
- * Gestion du fond galaxie + overlays
- */
-
-/* === 🌌 Fond principal galaxie === */
+/* 🌌 Fond galactique premium */
 .appMount__51c26 {
-    background: url("https://i.imgur.com/IYArJlz.png") center center / cover no-repeat fixed;
+    background: 
+        radial-gradient(ellipse at top left, rgba(59, 130, 246, 0.1) 0%, transparent 70%),
+        radial-gradient(ellipse at bottom right, rgba(124, 58, 237, 0.1) 0%, transparent 70%),
+        linear-gradient(to bottom, rgba(6, 8, 19, 0.9), rgba(6, 8, 19, 0.95)),
+        url("https://i.imgur.com/IYArJlz.png") center/cover no-repeat fixed;
     position: relative;
     overflow: hidden;
 }
 
-/* === 🌑 Overlay sombre pour lisibilité === */
+/* Overlay étoiles animé */
 .appMount__51c26::before {
     content: "";
     position: absolute;
-    top:0; left:0; right:0; bottom:0;
-    background: rgba(0, 0, 0, 0.55);
-    z-index: 0;
-}
-
-/* === 📦 Tous les panneaux passent au-dessus du fond === */
-.layers__1c917,
-.layer__2efaa,
-.container__590e2,
-.container__20de0,
-.container__26baa,
-.chat__52833 {
-    background: transparent !important;
-    position: relative;
-    z-index: 1;
-}
-
-/* === 🪐 Overlay gradient pour profondeur === */
-.appMount__51c26::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at top left, rgba(59,130,246,0.15), transparent 70%),
-                radial-gradient(circle at bottom right, rgba(147,197,253,0.15), transparent 70%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("https://i.imgur.com/3KXEvzK.png") repeat;
+    animation: starsMove 200s linear infinite;
+    opacity: 0.3;
     pointer-events: none;
     z-index: 0;
 }
 
-/* === 📜 Sidebars (gauche/droite) === */
-.sidebar__02e8d,
-.privateChannels__35e86,
-.container__590e2 {
-    background: rgba(11, 13, 23, 0.7) !important;
-    backdrop-filter: blur(8px);
-    border-right: 1px solid rgba(59, 130, 246, 0.15);
+@keyframes starsMove {
+    from { background-position: 0 0; }
+    to { background-position: -5000px 2500px; }
 }
 
-/* === 🗂️ Liste des serveurs (gauche) === */
-.guilds__2b93a {
-    background: rgba(15, 17, 28, 0.75) !important;
-    backdrop-filter: blur(10px);
-    border-right: 1px solid rgba(59, 130, 246, 0.15);
+/* Effet de profondeur cosmique */
+.appMount__51c26::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.05) 0%, transparent 25%);
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* === 💬 Zone de chat === */
-.chatContent__5dca8 {
-    background: rgba(13, 15, 26, 0.65) !important;
-    backdrop-filter: blur(6px);
+/* Couches principales */
+.layers__1c917 > .layer__2efaa:not(.baseLayer__8fda3) {
+    background: transparent !important;
 }
 
-/* === 📜 Membres (droite) === */
-.members__573eb {
-    background: rgba(15, 17, 28, 0.65) !important;
-    backdrop-filter: blur(6px);
-    border-left: 1px solid rgba(59, 130, 246, 0.15);
+/* Zone de chat */
+.chat__52833 {
+    background: transparent !important;
+    padding: 0 var(--spacing-xl);
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
-/* === 🔍 Barre du haut (serveur / recherche) === */
-.header__104ca,
+/* Barre supérieure */
 .container__11d72 {
     background: rgba(17, 20, 35, 0.7) !important;
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* === 📑 Barres d’onglets (par ex. Amis, Nitro) === */
-.tabBody__9ca22 {
+/* Liste des serveurs */
+.guilds__2b93a {
+    background: rgba(15, 17, 28, 0.7) !important;
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(59, 130, 246, 0.1);
+    padding-top: var(--spacing-md);
+}
+
+/* Barre latérale */
+.sidebar_ded4b5 {
+    background: rgba(11, 13, 23, 0.7) !important;
+    backdrop-filter: blur(12px);
+    border-right: none;
+}
+
+/* Liste des membres */
+.members__573eb {
     background: rgba(11, 13, 23, 0.6) !important;
-    border-radius: var(--radius-large);
-    box-shadow: var(--shadow-strong);
+    backdrop-filter: blur(8px);
+    border-left: 1px solid rgba(59, 130, 246, 0.1);
 }
 
-/* === 📜 Fenêtres popups / modals === */
-.layer__2efaa > .focusLock-2tveLW {
-    background: rgba(15, 17, 28, 0.85) !important;
-    border-radius: var(--radius-large);
-    box-shadow: var(--shadow-strong);
-    border: 1px solid rgba(59, 130, 246, 0.25);
-    padding: 10px;
-}
-
-/* === 🎛️ Paramètres utilisateur === */
-.standardSidebarView__1129a {
-    background: rgba(13, 15, 26, 0.7) !important;
-    backdrop-filter: blur(6px);
-    border-radius: var(--radius-large);
-    box-shadow: var(--shadow-soft);
-}
-
-/* === 🖼️ Profil utilisateur popup === */
+/* Fenêtre utilisateur */
 .userPopout__83f1d {
-    background: rgba(17, 20, 35, 0.85) !important;
-    border-radius: var(--radius-large);
-    border: 1px solid rgba(59, 130, 246, 0.25);
-    box-shadow: var(--shadow-strong);
+    background: rgba(17, 20, 35, 0.95) !important;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--glow-lg);
 }
 
-/* === 📋 Context menus (clic droit) === */
-.menu__5cf7e {
+/* Fenêtre modale */
+.modal__5c7e7 {
     background: rgba(15, 17, 28, 0.95) !important;
-    border-radius: var(--radius-medium);
     border: 1px solid rgba(59, 130, 246, 0.25);
-    box-shadow: var(--shadow-strong);
+    backdrop-filter: blur(24px);
 }
 
-/* === 💡 Tooltips === */
-.tooltip__01384 {
-    background: rgba(0, 0, 0, 0.9) !important;
-    border-radius: var(--radius-small);
-    border: 1px solid rgba(59, 130, 246, 0.25);
+/* Barre de navigation */
+.nav__0f846 {
+    background: rgba(17, 20, 35, 0.7) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
 }
 
-/* === 🎶 Mini-lecteur Spotify === */
-.container__3673d {
-    background: rgba(17, 20, 35, 0.85) !important;
-    border-radius: var(--radius-large);
-    border: 1px solid rgba(59, 130, 246, 0.25);
-    box-shadow: var(--shadow-soft);
+/* Onglets */
+.tabBar__35f81 {
+    background: transparent !important;
+}
+
+/* Barre de recherche */
+.searchBar__621ec {
+    background: rgba(15, 23, 42, 0.4) !important;
+    backdrop-filter: blur(5px);
+}
+
+/* Zone de connexion */
+.authBox__6c5e3 {
+    background: rgba(15, 17, 28, 0.9) !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Paramètres utilisateur */
+.standardSidebarView__1129a {
+    background: rgba(13, 15, 26, 0.9) !important;
+    backdrop-filter: blur(20px);
+}
+
+/* Barre de défilement personnalisée */
+::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+    height: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: var(--border-radius-md);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Effet de transition entre les pages */
+.app__99c1d {
+    animation: fadeIn 300ms ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Adaptations pour mobile */
+@media (max-width: 1200px) {
+    .guilds__2b93a {
+        background: rgba(15, 17, 28, 0.9) !important;
+    }
+    
+    .members__573eb {
+        background: rgba(11, 13, 23, 0.9) !important;
+    }
+    
+    .chat__52833 {
+        padding: 0 var(--spacing-md);
+    }
 }

@@ -1,135 +1,47 @@
 /**
- * Luna Theme - Animations & FX
- * Effets visuels (étoiles, glow, transitions, pulsations)
+ * @name Luna Theme - Base
+ * @version 1.1
+ * @description Variables globales + arrondis cohérents
+ * @author SpyWare
  */
 
-/* === 🌌 Overlay étoiles animé === */
-.appMount__51c26::after {
-    content: "";
-    position: absolute;
-    top:0; left:0; right:0; bottom:0;
-    background: transparent url("https://i.imgur.com/3KXEvzK.png") repeat;
-    animation: starsMove 180s linear infinite;
-    opacity: 0.35;
-    z-index: 0;
+/* --- Couleurs principales --- */
+:root {
+    --luna-accent: #3b82f6;         /* Bleu galaxie */
+    --luna-accent-dark: #1e40af;
+    --luna-bg-dark: #0b0d17;        /* Fond principal */
+    --luna-bg-darker: #090a12;
+    --luna-bg-card: rgba(15, 23, 42, 0.6);
+
+    --luna-text: #e2e8f0;
+    --luna-text-muted: #94a3b8;
+
+    /* --- Arrondis globaux --- */
+    --radius-small: 6px;
+    --radius-medium: 12px;
+    --radius-large: 18px;
+    --radius-pill: 999px;
+
+    /* --- Ombres --- */
+    --shadow-soft: 0 0 8px rgba(59, 130, 246, 0.25);
+    --shadow-strong: 0 0 16px rgba(59, 130, 246, 0.45);
 }
 
-@keyframes starsMove {
-    from { background-position: 0 0; }
-    to { background-position: -5000px 2500px; }
+/* Forcer le mode sombre avec notre fond galaxie */
+.theme-dark {
+    --background-primary: var(--luna-bg-dark);
+    --background-secondary: #0f111c;
+    --background-tertiary: #131625;
+    --background-floating: #0d0f1a;
+
+    --text-normal: var(--luna-text);
+    --text-muted: var(--luna-text-muted);
 }
 
-/* === ✨ Glow général sur hover === */
-.button__581d0:hover,
-.iconWrapper__4c163:hover,
-.tabBarItemContainer__3b828:hover {
-    box-shadow: 0 0 12px rgba(59,130,246,0.7);
-    transform: scale(1.05);
-    transition: all 0.25s ease;
-}
-
-/* === 🌙 Apparition douce === */
-.message__80c10,
-.userPopout__83f1d,
-.menu__5cf7e,
-.container__590e2 {
-    animation: fadeIn 0.6s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* === 🔄 Pulsation mentions === */
-.mention__1afd3 {
-    background: rgba(59,130,246,0.2);
-    border: 1px solid rgba(59,130,246,0.5);
-    border-radius: 999px;
-    animation: pulseGlow 2s infinite;
-}
-
-@keyframes pulseGlow {
-    0% { box-shadow: 0 0 0px rgba(59,130,246,0.7); }
-    50% { box-shadow: 0 0 12px rgba(59,130,246,1); }
-    100% { box-shadow: 0 0 0px rgba(59,130,246,0.7); }
-}
-
-/* === 🎖️ Badges avec glow === */
-.badge__6a0ef {
-    animation: badgePulse 3s infinite ease-in-out;
-    border-radius: 999px;
-}
-
-@keyframes badgePulse {
-    0%, 100% { filter: drop-shadow(0 0 0 rgba(59,130,246,0)); }
-    50% { filter: drop-shadow(0 0 6px rgba(59,130,246,0.8)); }
-}
-
-/* === 🟦 Effet au clic boutons === */
-.button__581d0:active {
-    transform: scale(0.95);
-    box-shadow: 0 0 8px rgba(37,99,235,0.9);
-    transition: all 0.15s ease;
-}
-
-/* === 💡 Tooltips animés === */
-.tooltip__01384 {
-    animation: tooltipAppear 0.25s ease-out;
-}
-
-@keyframes tooltipAppear {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* === 🖼️ Images messages (zoom smooth) === */
-.imageWrapper__178ee img {
-    border-radius: var(--radius-medium);
-    transition: transform 0.3s ease;
-}
-.imageWrapper__178ee img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 12px rgba(59,130,246,0.4);
-}
-
-/* === 🎶 Barre de progression Spotify animée === */
-.progressBar-3u8FBz {
-    background: linear-gradient(90deg, #2563eb, #1e40af);
-    border-radius: 999px;
-    animation: progressShimmer 2s infinite linear;
-}
-
-@keyframes progressShimmer {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 200% 50%; }
-}
-
-/* === 📜 Scrollbars animées === */
-::-webkit-scrollbar-thumb {
-    transition: background 0.3s ease;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #60a5fa, #1e3a8a);
-    box-shadow: 0 0 8px rgba(59,130,246,0.6);
-}
-
-/* === 🔔 Notifs highlight (shake léger) === */
-.iconBadge__6a9a7 {
-    animation: notifShake 2.5s infinite;
-    background: #2563eb !important;
-    color: white !important;
-}
-
-@keyframes notifShake {
-    0%, 90%, 100% { transform: translateX(0); }
-    92% { transform: translateX(-2px); }
-    96% { transform: translateX(2px); }
-}
-
-/* === 🪐 Transition smooth sur panels === */
-.sidebar__02e8d,
-.members__573eb,
-.chatContent__5dca8 {
-    transition: background 0.4s ease, backdrop-filter 0.4s ease;
+/* --- Textes --- */
+[class*="title"], 
+[class*="username"], 
+[class*="name"], 
+[class*="defaultColor"] {
+    color: var(--luna-text) !important;
 }
