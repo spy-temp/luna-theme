@@ -1,47 +1,75 @@
-/* 💬 Messages */
-.messageListItem__050f9 {
-    border-radius: var(--message-radius) !important;
-    background: rgba(30, 41, 59, 0.45) !important;
-    margin-bottom: 6px !important;
-    padding: var(--message-padding-top) var(--message-padding-side) !important;
-    backdrop-filter: blur(6px);
+/* ====== Messages arrondis + verre dépoli ====== */
+/* Sélecteur robuste: toute ligne de messages */
+[class^="messageListItem"], [class*=" messageListItem"] {
+  border-radius: var(--message-radius) !important;
+  margin: 4px 0 !important;
+  background: rgba(22, 28, 45, 0.48) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow: hidden;
 }
 
-/* 📦 Cartes */
-.card-2TuZPZ {
-    border-radius: var(--card-radius) !important;
-    background: rgba(15, 23, 42, 0.7) !important;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.25);
-    backdrop-filter: blur(8px);
+/* Bulles internes (certains containers) */
+[class*="message-"] > [class*="contents-"],
+[class*="messageContent-"] {
+  border-radius: calc(var(--message-radius) - 6px) !important;
 }
 
-/* 🔘 Boutons arrondis */
-.button-38aScr {
-    border-radius: 999px !important;
-    background: linear-gradient(135deg, #2563eb, #1e40af) !important;
-    color: #fff !important;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.button-38aScr:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 14px rgba(59, 130, 246, 0.7);
+/* ====== Cartes / panneaux ====== */
+[class*="card-"], [class^="card-"],
+[class*="container-"][class*="Card"], [class*="panel-"] {
+  border-radius: var(--card-radius) !important;
+  background: rgba(15, 23, 42, 0.62) !important;
+  box-shadow: 0 6px 30px rgba(30, 64, 175, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-/* 🔎 Barre de recherche */
-.searchBar-3TnChZ {
-    border-radius: var(--input-height) !important;
-    background: rgba(15, 23, 42, 0.6) !important;
-    backdrop-filter: blur(6px);
+/* ====== Sidebar / membres / channels fonds doux ====== */
+[class*="sidebar-"], [class*="panels-"], [class*="container-"][class*="sidebar"],
+[class*="membersWrap-"], [class*="members-"], [class*="channelTextArea-"] {
+  background-color: rgba(13, 17, 28, 0.58) !important;
 }
 
-/* 📜 Scrollbar stylée */
+/* ====== Boutons pill + dégradé bleu ====== */
+button, [class*="button"], [role="button"] {
+  border-radius: 9999px !important;
+}
+[class*="lookFilled-"], [class*="colorBrand-"] {
+  background-image: linear-gradient(135deg, #2563eb, #1e40af) !important;
+  color: #fff !important;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+[class*="lookFilled-"]:hover, [class*="colorBrand-"]:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.55);
+}
+
+/* ====== Inputs / search ====== */
+input, textarea, [class*="searchBar"] {
+  border-radius: var(--input-height) !important;
+  background: rgba(15, 23, 42, 0.56) !important;
+  color: var(--text-normal) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* ====== Tooltips / popouts ====== */
+[class*="tooltip-"], [class*="popout"], [class*="popOver"] {
+  border-radius: var(--popout-radius) !important;
+  background: rgba(11, 13, 23, 0.88) !important;
+  color: var(--text-normal) !important;
+}
+
+/* ====== Scrollbar ====== */
 ::-webkit-scrollbar {
-    width: var(--scrollbar-width);
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-thin-width);
 }
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #3b82f6, #1e40af);
-    border-radius: 10px;
+  background: linear-gradient(180deg, #3b82f6, #1e40af);
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
