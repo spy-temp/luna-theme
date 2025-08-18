@@ -1,28 +1,12 @@
-/* Fond image fixé sur tout l’écran, sous l’app */
-#app-mount::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(1200px 800px at 20% 110%, rgba(59, 130, 246, 0.10), transparent 60%),
-    url("https://i.imgur.com/IYArJlz.png") center center / cover no-repeat fixed;
-  z-index: 0;
-  pointer-events: none;
-  filter: saturate(1.05) brightness(0.95);
+body {
+    background: url("https://i.imgur.com/IYArJlz.png") center/cover no-repeat fixed !important;
 }
 
-/* S’assurer que l’app est au-dessus */
-#app-mount {
-  position: relative;
-  z-index: 1;
-}
-
-/* Léger voile pour la lisibilité, surtout en zones claires de l’image */
-#app-mount::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.35));
-  z-index: 0;
-  pointer-events: none;
+/* couche sombre par dessus pour lisibilité */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,20,0.55);
+    z-index: -1;
 }
