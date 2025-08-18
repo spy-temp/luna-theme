@@ -1,38 +1,53 @@
 :root {
-    /* --- Couleurs principales --- */
-    --accent-hue: 220; /* bleu profond */
-    --accent-saturation: 90%;
-    --accent-lightness: 55%;
+  /* --- Couleurs principales --- */
+  --accent-hue: 220;
+  --accent-saturation: 90%;
+  --accent-lightness: 55%;
 
-    --background-primary: #0b0d17;
-    --background-secondary: #0f111c;
-    --background-tertiary: #131625; 
-    --background-floating: #0d0f1a;
+  /* Surfaces semi-transparentes pour laisser voir le fond */
+  --background-primary: rgba(11, 13, 23, 0.72);
+  --background-secondary: rgba(15, 17, 28, 0.66);
+  --background-tertiary: rgba(19, 22, 37, 0.60);
+  --background-floating: rgba(13, 15, 26, 0.70);
 
-    --text-normal: #e2e8f0;
-    --text-muted: #94a3b8;
-    --channels-default: #64748b;
+  --text-normal: #e2e8f0;
+  --text-muted: #94a3b8;
+  --channels-default: #8aa0bf;
 
-    /* --- Messages --- */
-    --message-radius: 18px;
-    --message-padding-top: 8px;
-    --message-padding-side: 12px;
+  /* Rounds */
+  --message-radius: 18px;
+  --card-radius: 16px;
 
-    /* --- Cartes / panneaux --- */
-    --card-radius: 16px;
+  /* Spacing */
+  --message-padding-top: 8px;
+  --message-padding-side: 12px;
 
-    /* --- Boutons --- */
-    --button-height: 36px;
-    --button-padding: 0 20px;
+  /* Inputs / buttons */
+  --button-height: 36px;
+  --button-padding: 0 20px;
+  --input-height: 36px;
+  --input-padding: 0 12px;
 
-    /* --- Entrées (inputs) --- */
-    --input-height: 36px;
-    --input-padding: 0 12px;
+  /* Popouts / modals */
+  --popout-radius: 14px;
 
-    /* --- Popups & Modals --- */
-    --popout-radius: 14px;
+  /* Scrollbars */
+  --scrollbar-width: 8px;
+  --scrollbar-thin-width: 5px;
 
-    /* --- Scrollbar --- */
-    --scrollbar-width: 8px;
-    --scrollbar-thin-width: 5px;
+  /* Accent dérivé */
+  --accent: hsl(var(--accent-hue), var(--accent-saturation), var(--accent-lightness));
+}
+
+/* Forcer Discord à utiliser des surfaces un peu transparentes */
+.theme-dark, .theme-light {
+  --background-primary: var(--background-primary);
+  --background-secondary: var(--background-secondary);
+  --background-tertiary: var(--background-tertiary);
+  --background-floating: var(--background-floating);
+}
+
+/* Neutraliser d'éventuels fonds opaques */
+html, body, #app-mount {
+  background: transparent !important;
 }
