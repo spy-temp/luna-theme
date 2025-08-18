@@ -1,57 +1,161 @@
-/* ✨ Animation des étoiles en arrière-plan */
+/* ✨ Animation des étoiles */
 @keyframes twinkle {
-    0%, 100% { opacity: 0.2; }
+    0%, 100% { opacity: 0.3; }
     50% { opacity: 0.8; }
 }
 
-/* Étoiles clignotantes */
+/* Animation des étoiles individuelles */
 .star {
     position: absolute;
     background: white;
     border-radius: 50%;
-    animation: twinkle 3s infinite alternate;
-}
-
-/* Création dynamique d'étoiles */
-.appMount__51c26::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='1' fill='white'/%3E%3C/svg%3E");
-    opacity: 0.3;
+    animation: twinkle 3s infinite ease-in-out;
     pointer-events: none;
-    z-index: 0;
 }
 
-/* Animation fluide au survol */
-.button__66e8c, .channel__8d5a7 {
-    transition: all var(--transition-fast);
+/* Animation du fond étoilé */
+@keyframes starsMove {
+    from { background-position: 0 0; }
+    to { background-position: -5000px 2500px; }
 }
 
 /* Pulse pour les mentions */
-@keyframes mention-pulse {
-    0% { background-color: rgba(59, 130, 246, 0.1); }
-    50% { background-color: rgba(59, 130, 246, 0.3); }
-    100% { background-color: rgba(59, 130, 246, 0.1); }
+@keyframes mentionPulse {
+    0%, 100% { background-color: rgba(59, 130, 246, 0.1); }
+    50% { background-color: rgba(59, 130, 246, 0.25); }
 }
 
 .mentioned__58017 {
-    animation: mention-pulse 2s ease infinite;
+    animation: mentionPulse 4s ease infinite;
 }
 
-/* Transition d'apparition */
-.layer__2efaa {
-    animation: fadeInUp 0.3s ease-out;
+/* Animation des boutons */
+@keyframes buttonShine {
+    0% { transform: rotate(30deg) translate(-30%, -30%); }
+    100% { transform: rotate(30deg) translate(30%, 30%); }
 }
 
-@keyframes fadeInUp {
+/* Apparition des messages */
+@keyframes messageFadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.message__80c10 {
+    animation: messageFadeIn 200ms ease-out;
+}
+
+/* Animation des tooltips */
+@keyframes tooltipFadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tooltip__01384 {
+    animation: tooltipFadeIn 150ms ease-out;
+}
+
+/* Animation des modales */
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal__5c7e7 {
+    animation: modalFadeIn 200ms ease-out;
+}
+
+/* Animation des popups */
+@keyframes popupFadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Effet de profondeur au survol */
-.container__5c7e7:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--glow-soft);
+.userPopout__83f1d {
+    animation: popupFadeIn 150ms ease-out;
+}
+
+/* Animation des pings */
+@keyframes pingPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(59, 130, 246, 0); }
+}
+
+.ping__1a1d6 {
+    animation: pingPulse 2s infinite;
+}
+
+/* Animation des badges */
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(59, 130, 246, 0); }
+    50% { transform: scale(1.05); box-shadow: 0 0 8px rgba(59, 130, 246, 0.4); }
+}
+
+.badge__6a0ef {
+    animation: badgePulse 3s infinite;
+}
+
+/* Animation de la barre de progression Spotify */
+@keyframes progressShimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+.progressBar-3u8FBz {
+    animation: progressShimmer 2s infinite linear;
+}
+
+/* Animation des réactions */
+@keyframes reactionPop {
+    0% { transform: scale(0); opacity: 0; }
+    80% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.reaction__00ee1 {
+    animation: reactionPop 200ms ease-out;
+}
+
+/* Animation des nouveaux messages */
+@keyframes newMessageHighlight {
+    0% { background-color: rgba(59, 130, 246, 0); }
+    20% { background-color: rgba(59, 130, 246, 0.2); }
+    100% { background-color: rgba(59, 130, 246, 0); }
+}
+
+.newMessagesBar__8e6bb {
+    animation: newMessageHighlight 2s ease;
+}
+
+/* Animation des icônes */
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.iconWrapper__4c163:hover {
+    animation: iconFloat 2s ease-in-out infinite;
+}
+
+/* Animation des avatars */
+@keyframes avatarGlow {
+    0%, 100% { box-shadow: 0 0 0 rgba(59, 130, 246, 0); }
+    50% { box-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
+}
+
+.avatar__991e2:hover {
+    animation: avatarGlow 2s ease infinite;
+}
+
+/* Animation des notifications */
+@keyframes notificationShake {
+    0%, 90%, 100% { transform: translateX(0); }
+    92% { transform: translateX(-2px); }
+    94% { transform: translateX(2px); }
+    96% { transform: translateX(-2px); }
+    98% { transform: translateX(2px); }
+}
+
+.iconBadge__6a9a7 {
+    animation: notificationShake 2.5s infinite;
 }
