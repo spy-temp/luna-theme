@@ -1,51 +1,79 @@
-/* 💬 Messages — Version clean */
-.message-2qnXI6,
-[class*="messageListItem"] {
-    background: transparent !important; /* pas de bloc massif */
-    margin: 4px 0;
-    padding: 0 !important;
-    border-radius: 0 !important;
-}
+/**
+ * Luna Theme — COMPONENTS
+ * Messages, cartes, boutons, menus...
+ */
 
-/* Contenu du message (bulle subtile) */
-.message-2qnXI6 .contents-2mQqc9 {
-    background: rgba(17, 23, 40, 0.55) !important;
-    border-radius: 8px;
-    padding: 6px 10px;
-    display: inline-block;
-    max-width: 85%;
+/* 💬 Messages */
+.message-2qnXI6, 
+[class*="messageListItem"] {
+    background: rgba(17, 23, 40, 0.6) !important;
+    border-radius: var(--luna-radius) !important;
+    margin: 4px 0;
+    padding: var(--luna-padding) !important;
     transition: background 0.2s ease;
 }
-.message-2qnXI6:hover .contents-2mQqc9 {
+.message-2qnXI6:hover {
     background: rgba(59, 130, 246, 0.15) !important;
 }
 
-/* Mentions */
-.mention {
-    background: rgba(59, 130, 246, 0.25) !important;
-    border-radius: 6px !important;
-    padding: 2px 6px;
-    font-weight: 500;
-    color: #fff !important;
-}
-
-/* Embeds (liens, images, citations) */
-.embedFull-1HGV2S {
-    background: rgba(30, 41, 59, 0.65) !important;
-    border-radius: 8px !important;
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    margin-top: 4px;
-    padding: 8px;
-}
-
-/* Reactions */
+/* 😀 Reactions / Emojis */
 .reaction-2A2y9y {
     background: rgba(59, 130, 246, 0.25) !important;
-    border-radius: 6px !important;
+    border-radius: var(--luna-radius-small) !important;
     padding: 2px 6px;
-    margin: 2px;
     transition: background 0.2s ease;
 }
 .reaction-2A2y9y:hover {
-    background: rgba(59, 130, 246, 0.45) !important;
+    background: rgba(59, 130, 246, 0.4) !important;
+}
+
+/* 🔘 Boutons */
+.button-38aScr {
+    border-radius: var(--luna-radius-big) !important;
+    background: linear-gradient(135deg, var(--luna-accent), var(--luna-accent-deep)) !important;
+    color: white !important;
+    padding: 6px 14px !important;
+    font-size: 0.9em !important;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.button-38aScr:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+/* 📦 Cartes / panneaux */
+.card-2TuZPZ, 
+.userPopout-2j1gM4,
+.embedFull-1HGV2S {
+    background: rgba(15, 23, 42, 0.7) !important;
+    border-radius: var(--luna-radius) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+    padding: var(--luna-padding);
+}
+
+/* 🔎 Barre de recherche */
+.searchBar-3TnChZ {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border-radius: var(--luna-radius-big) !important;
+    padding: 6px 12px !important;
+    font-size: 0.9em;
+}
+
+/* 📜 Menus contextuels / popouts */
+.menu-2TXYjN, 
+.popout-3sVMXz, 
+.modal-2LIEKY {
+    background: rgba(11, 13, 23, 0.9) !important;
+    border-radius: var(--luna-radius) !important;
+    backdrop-filter: blur(8px);
+    padding: var(--luna-padding);
+}
+
+/* 🔔 Mentions */
+.mention {
+    background: rgba(59, 130, 246, 0.3) !important;
+    color: white !important;
+    border-radius: var(--luna-radius-small) !important;
+    padding: 2px 6px;
+    font-weight: 500;
 }
