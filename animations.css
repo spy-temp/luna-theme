@@ -1,39 +1,44 @@
-/* Animation des icônes de serveur */
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-}
-.guilds-wrapper .guild.selected {
-    animation: float 3s ease-in-out infinite;
+/**
+ * Luna Theme Premium — animations.css
+ * Scintillement d’étoiles, flottement de nébuleuse, micro-interactions
+ */
+
+@keyframes twinkle {
+  0%   { opacity: .85; }
+  50%  { opacity: .35; }
+  100% { opacity: .85; }
 }
 
-/* Animation des mentions */
-.mention {
-    position: relative;
-}
-.mention::after {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border-radius: var(--border-radius-sm);
-    border: 2px solid var(--accent-color);
-    opacity: 0;
-    animation: pulseMention 2s infinite;
-}
-@keyframes pulseMention {
-    0% { opacity: 0; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.05); }
-    100% { opacity: 0; transform: scale(1); }
+@keyframes nebulaFloat {
+  0%   { transform: translate3d(-2%, 0, 0) scale(1); }
+  50%  { transform: translate3d(2%, -1%, 0) scale(1.02); }
+  100% { transform: translate3d(-1%, 1%, 0) scale(1.01); }
 }
 
-/* Animation entrée messages */
-@keyframes messageIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes softGlow {
+  0%   { box-shadow: 0 0 0 rgba(109,152,255,0); }
+  100% { box-shadow: 0 0 24px rgba(109,152,255,0.45); }
 }
-.message {
-    animation: messageIn 0.3s ease-out;
+
+@keyframes floatUp {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-2px); }
+}
+
+/* Micro-interactions (hover subtils) */
+button:hover, .button-38aScr:hover, [role="button"]:hover {
+  animation: floatUp var(--norm) ease both;
+}
+
+/* Focus states lumineux */
+input:focus, textarea:focus, select:focus,
+.textArea-2CLwUE:focus, .input-2g-os5:focus {
+  animation: softGlow var(--norm) ease;
+}
+
+/* Panneaux au survol */
+.card:hover, .container-2cd8Mz:hover, .embedWrapper-lXpS3L:hover {
+  transition: transform var(--norm) ease, box-shadow var(--norm) ease;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-2);
 }
