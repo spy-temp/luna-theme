@@ -1,0 +1,57 @@
+/**
+ * Luna Theme Premium — controls.css
+ * Barre utilisateur, barre d’appel, navigation
+ */
+
+/* Barre utilisateur en bas */
+.container-3baos1 {
+  background: linear-gradient(180deg, rgba(20,28,58,.96), rgba(14,20,44,.96)) !important;
+  border-top: var(--line);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow-1);
+  padding: 8px;
+}
+.avatarWrapper-3r9PdD {
+  border-radius: var(--radius-md);
+  transition: box-shadow var(--fast);
+}
+.avatarWrapper-3r9PdD:hover {
+  box-shadow: var(--glow-soft);
+}
+
+/* Boutons Mute/Deafen/Settings */
+.button-12Fmur {
+  background: var(--bg-4) !important;
+  border-radius: var(--radius-sm);
+  margin: 0 4px;
+  transition: background var(--fast), box-shadow var(--fast);
+}
+.button-12Fmur:hover {
+  background: var(--accent);
+  box-shadow: var(--glow-soft);
+}
+
+/* Barre de contrôle d’appel (vidéo / mute / share) */
+.wrapper-3HkzaW, .videoControls-2wQvdx {
+  background: linear-gradient(180deg, rgba(20,28,58,.95), rgba(14,20,44,.95));
+  border: var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+}
+.controlButton-2PMNom {
+  background: var(--bg-3);
+  border-radius: var(--radius-md);
+  transition: background var(--fast), box-shadow var(--fast);
+}
+.controlButton-2PMNom:hover {
+  background: var(--accent);
+  box-shadow: var(--glow-soft);
+}
+
+/* Barre supérieure (header serveur / DM / recherche) */
+.title-31SJ6t, .searchBar-3TnChZ {
+  background: linear-gradient(180deg, rgba(20,28,58,.96), rgba(14,20,44,.96)) !important;
+  border-bottom: var(--line);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow-1);
+}
