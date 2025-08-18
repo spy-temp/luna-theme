@@ -1,67 +1,46 @@
-/* ====== Messages arrondis + verre dépoli ====== */
-/* Sélecteur robuste: toute ligne de messages */
-[class^="messageListItem"], [class*=" messageListItem"] {
+/* 💬 Messages — arrondis + effet verre */
+[class*="message"] {
   border-radius: var(--message-radius) !important;
-  margin: 4px 0 !important;
-  background: rgba(22, 28, 45, 0.48) !important;
+  background: rgba(22, 28, 45, 0.45) !important;
+  margin: 4px 8px !important;
+  padding: var(--message-padding-top) var(--message-padding-side) !important;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  overflow: hidden;
 }
 
-/* Bulles internes (certains containers) */
-[class*="message-"] > [class*="contents-"],
-[class*="messageContent-"] {
-  border-radius: calc(var(--message-radius) - 6px) !important;
-}
-
-/* ====== Cartes / panneaux ====== */
-[class*="card-"], [class^="card-"],
-[class*="container-"][class*="Card"], [class*="panel-"] {
+/* 📦 Cartes / panneaux / profils */
+[class*="card"], [class*="Card"], [class*="container"], [class*="panel"] {
   border-radius: var(--card-radius) !important;
-  background: rgba(15, 23, 42, 0.62) !important;
-  box-shadow: 0 6px 30px rgba(30, 64, 175, 0.25);
+  background: rgba(15, 23, 42, 0.6) !important;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
-/* ====== Sidebar / membres / channels fonds doux ====== */
-[class*="sidebar-"], [class*="panels-"], [class*="container-"][class*="sidebar"],
-[class*="membersWrap-"], [class*="members-"], [class*="channelTextArea-"] {
-  background-color: rgba(13, 17, 28, 0.58) !important;
-}
-
-/* ====== Boutons pill + dégradé bleu ====== */
-button, [class*="button"], [role="button"] {
+/* 🔘 Boutons — style pill + dégradé bleu */
+button, [role="button"] {
   border-radius: 9999px !important;
 }
-[class*="lookFilled-"], [class*="colorBrand-"] {
+button[class*="lookFilled"], button[class*="colorBrand"] {
   background-image: linear-gradient(135deg, #2563eb, #1e40af) !important;
   color: #fff !important;
   transition: transform .18s ease, box-shadow .18s ease;
 }
-[class*="lookFilled-"]:hover, [class*="colorBrand-"]:hover {
-  transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 0 18px rgba(59, 130, 246, 0.55);
+button[class*="lookFilled"]:hover, button[class*="colorBrand"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
 }
 
-/* ====== Inputs / search ====== */
-input, textarea, [class*="searchBar"] {
+/* 🔎 Barre de recherche + inputs */
+input, textarea, [class*="searchBar"], [class*="textArea"] {
   border-radius: var(--input-height) !important;
-  background: rgba(15, 23, 42, 0.56) !important;
+  background: rgba(15, 23, 42, 0.55) !important;
   color: var(--text-normal) !important;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
 
-/* ====== Tooltips / popouts ====== */
-[class*="tooltip-"], [class*="popout"], [class*="popOver"] {
-  border-radius: var(--popout-radius) !important;
-  background: rgba(11, 13, 23, 0.88) !important;
-  color: var(--text-normal) !important;
-}
-
-/* ====== Scrollbar ====== */
+/* 📜 Scrollbar — déjà OK */
 ::-webkit-scrollbar {
   width: var(--scrollbar-width);
   height: var(--scrollbar-thin-width);
