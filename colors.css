@@ -1,0 +1,15 @@
+:root {
+  /* Couleurs NASA-like */
+  --galaxy-void: #050811;
+  --galaxy-core: #0b1120;
+  --galaxy-dust: #1e293b;
+  --galaxy-neon: #3b82f6;
+  --galaxy-pulse: #6366f1;
+  
+  /* Texte */
+  --text-starlight: #e0e7ff;
+  --text-dimmed: #94a3b8;
+  
+  /* Effets spéciaux */
+  --glow-orb: 0 0 20px rgba(59, 130, 246, 0.7);
+}

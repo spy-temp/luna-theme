@@ -1,0 +1,17 @@
+.guilds-wrapper .guild {
+  background: var(--galaxy-core) !important;
+  border-radius: 16px !important;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 12px;
+}
+
+.guild.selected {
+  background: linear-gradient(var(--galaxy-dust), var(--galaxy-core)) !important;
+  box-shadow: var(--glow-orb);
+  animation: satelliteOrbit 8s infinite ease-in-out;
+}
+
+@keyframes satelliteOrbit {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
