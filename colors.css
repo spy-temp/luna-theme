@@ -1,15 +1,40 @@
 :root {
-  /* Couleurs NASA-like */
-  --galaxy-void: #050811;
-  --galaxy-core: #0b1120;
-  --galaxy-dust: #1e293b;
-  --galaxy-neon: #3b82f6;
-  --galaxy-pulse: #6366f1;
+  /* Couleurs Matrix-like */
+  --galaxy-blackhole: #020617;
+  --galaxy-event-horizon: #0b1120;
+  --galaxy-nebula: #1e293b;
+  --galaxy-singularity: #334155;
   
-  /* Texte */
-  --text-starlight: #e0e7ff;
-  --text-dimmed: #94a3b8;
+  /* Accents Cyberpunk */
+  --cyber-blue: #00d8ff;
+  --cyber-purple: #7928ca;
+  --cyber-pink: #ff0080;
   
-  /* Effets spéciaux */
-  --glow-orb: 0 0 20px rgba(59, 130, 246, 0.7);
+  /* Dégradés Spatiaux */
+  --gradient-space: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+  --gradient-accent: linear-gradient(90deg, var(--cyber-blue) 0%, var(--cyber-purple) 100%);
+  
+  /* Texte Holographique */
+  --text-holo: #e0f2fe;
+  --text-dim: #94a3b8;
+  --text-glitch: 0 0 5px var(--cyber-blue), 0 0 10px var(--cyber-purple);
+  
+  /* Effets 3D */
+  --shadow-deep: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  --neon-glow: 0 0 15px rgba(0, 216, 255, 0.7);
+  
+  /* Polices */
+  --font-display: 'Orbitron', sans-serif;
+  --font-main: 'Space Grotesk', system-ui;
+  
+  /* Système de transitions */
+  --transition-3d: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-smooth: all 0.3s ease-in-out;
+}
+
+/* Thème sombre forcé */
+.theme-dark {
+  --background-primary: var(--galaxy-blackhole);
+  --background-secondary: var(--galaxy-event-horizon);
+  --background-tertiary: var(--galaxy-nebula);
 }

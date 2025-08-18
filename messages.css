@@ -1,12 +1,81 @@
-.message {
-  background: rgba(15, 23, 42, 0.8) !important;
-  backdrop-filter: blur(6px);
-  border-left: 3px solid var(--galaxy-neon);
-  border-radius: 12px 18px 18px 12px !important;
-  animation: messageBeam 0.4s ease-out;
+/* Conteneur des messages */
+.messages-wrapper {
+  background: transparent !important;
 }
 
-@keyframes messageBeam {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
+/* Message individuel */
+.message {
+  background: linear-gradient(
+    to right,
+    rgba(15, 23, 42, 0.7) 0%,
+    rgba(15, 23, 42, 0.9) 100%
+  ) !important;
+  backdrop-filter: blur(5px);
+  border-radius: 12px 18px 18px 12px !important;
+  border-left: 3px solid var(--cyber-blue) !important;
+  margin-bottom: 15px !important;
+  box-shadow: var(--shadow-deep);
+  transition: var(--transition-smooth);
+  animation: messageAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+}
+
+/* Effet d'entrée des messages */
+@keyframes messageAppear {
+  from {
+    opacity: 0;
+    transform: translateX(-20px) rotateY(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+  }
+}
+
+/* Survol des messages */
+.message:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -10px rgba(0, 216, 255, 0.4);
+  border-left-width: 5px !important;
+}
+
+/* En-tête de message */
+.message-header {
+  font-family: var(--font-display) !important;
+  letter-spacing: 0.5px;
+}
+
+/* Contenu du message */
+.message-content {
+  color: var(--text-holo) !important;
+  text-shadow: 0 0 1px rgba(224, 242, 254, 0.3);
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+}
+
+/* Timestamp */
+.timestamp {
+  color: var(--cyber-blue) !important;
+  font-family: var(--font-display) !important;
+  font-size: 11px !important;
+}
+
+/* Mentions */
+.mention {
+  background: rgba(0, 216, 255, 0.15) !important;
+  color: var(--cyber-blue) !important;
+  border-radius: 4px !important;
+  font-weight: 700 !important;
+  padding: 0 5px !important;
+  position: relative;
+}
+
+.mention:hover {
+  background: rgba(0, 216, 255, 0.3) !important;
+  animation: mentionGlow 1.5s infinite;
+}
+
+@keyframes mentionGlow {
+  0%, 100% { text-shadow: 0 0 5px var(--cyber-blue); }
+  50% { text-shadow: 0 0 15px var(--cyber-blue); }
 }

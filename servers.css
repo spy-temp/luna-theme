@@ -1,17 +1,52 @@
-.guilds-wrapper .guild {
-  background: var(--galaxy-core) !important;
-  border-radius: 16px !important;
-  transition: transform 0.3s, box-shadow 0.3s;
-  margin-bottom: 12px;
+/* Conteneur des serveurs */
+.guilds-wrapper {
+  background: rgba(2, 6, 23, 0.7) !important;
+  backdrop-filter: blur(15px);
+  border-right: 1px solid rgba(0, 216, 255, 0.1) !important;
+  padding: 15px 5px !important;
+}
+
+/* Icônes de serveur */
+.guild {
+  background: var(--galaxy-event-horizon) !important;
+  border-radius: 18px !important;
+  margin-bottom: 15px !important;
+  transition: var(--transition-3d) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.guild:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px -5px rgba(0, 216, 255, 0.3);
 }
 
 .guild.selected {
-  background: linear-gradient(var(--galaxy-dust), var(--galaxy-core)) !important;
-  box-shadow: var(--glow-orb);
-  animation: satelliteOrbit 8s infinite ease-in-out;
+  background: linear-gradient(135deg, var(--galaxy-nebula), var(--galaxy-singularity)) !important;
+  animation: serverPulse 4s ease infinite;
 }
 
-@keyframes satelliteOrbit {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(2deg); }
+/* Effet d'hologramme sur les serveurs */
+.guild::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 216, 255, 0.3) 0%,
+    transparent 50%,
+    rgba(121, 40, 202, 0.3) 100%
+  );
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.guild:hover::before {
+  opacity: 1;
+}
+
+/* Animation du serveur sélectionné */
+@keyframes serverPulse {
+  0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 15px rgba(0, 216, 255, 0.5); }
+  50% { transform: translateY(-8px) scale(1.05); box-shadow: 0 10px 30px rgba(0, 216, 255, 0.8); }
 }
