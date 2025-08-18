@@ -1,96 +1,79 @@
 /**
- * Luna Theme — COMPONENTS (update compacte)
- * Tous les éléments interactifs, arrondis + styles cohérents
+ * Luna Theme — COMPONENTS
+ * Messages, cartes, boutons, menus...
  */
 
 /* 💬 Messages */
-[class*="message"] {
-    border-radius: 10px !important;
-    background: rgba(30, 41, 59, 0.35) !important;
-    margin-bottom: 4px;
-    padding: 6px 10px !important;
+.message-2qnXI6, 
+[class*="messageListItem"] {
+    background: rgba(17, 23, 40, 0.6) !important;
+    border-radius: var(--luna-radius) !important;
+    margin: 4px 0;
+    padding: var(--luna-padding) !important;
     transition: background 0.2s ease;
 }
-[class*="message"]:hover {
+.message-2qnXI6:hover {
+    background: rgba(59, 130, 246, 0.15) !important;
+}
+
+/* 😀 Reactions / Emojis */
+.reaction-2A2y9y {
     background: rgba(59, 130, 246, 0.25) !important;
+    border-radius: var(--luna-radius-small) !important;
+    padding: 2px 6px;
+    transition: background 0.2s ease;
 }
-
-/* 😀 Emojis, petits encadrés (reactions, mentions, tags) */
-[class*="emoji"],
-[class*="reaction"],
-[class*="mention"],
-[class*="badge"],
-[class*="tag"] {
-    border-radius: 6px !important;
-    padding: 2px 6px !important;
-    font-size: 0.9em;
-    background: rgba(59, 130, 246, 0.25) !important;
-    color: var(--luna-text) !important;
-}
-
-/* 🔘 Boutons */
-[class*="button"] {
-    border-radius: 999px !important; /* pill */
-    padding: 4px 12px !important;
-    font-size: 0.9em !important;
-    background: linear-gradient(135deg, var(--luna-accent), var(--luna-accent-deep)) !important;
-    color: white !important;
-    transition: transform 0.15s ease, box-shadow 0.2s ease;
-}
-[class*="button"]:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
-}
-
-/* 🔎 Barre de recherche / inputs */
-[class*="searchBar"],
-input,
-textarea {
-    border-radius: 8px !important;
-    background: rgba(15, 23, 42, 0.6) !important;
-    padding: 6px 10px !important;
-    font-size: 0.9em !important;
-    color: var(--luna-text) !important;
-}
-
-/* 📦 Cartes (serveurs, user profiles, embed containers) */
-[class*="card"],
-[class*="embed"],
-[class*="userPopout"],
-[class*="container"] {
-    border-radius: 10px !important;
-    background: rgba(15, 23, 42, 0.6) !important;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.4) !important;
-    padding: 8px !important;
-}
-
-/* 📜 Menus (popouts, context menus, modals) */
-[class*="menu"],
-[class*="modal"],
-[class*="popout"] {
-    border-radius: 10px !important;
-    background: rgba(11, 13, 23, 0.85) !important;
-    backdrop-filter: blur(10px) !important;
-    padding: 6px !important;
-}
-
-/* 🔔 Notifications / mentions */
-[class*="mention"] {
-    background: rgba(59, 130, 246, 0.25) !important;
-    border-radius: 6px !important;
-    font-weight: 500 !important;
-    color: var(--luna-text-inverse) !important;
-}
-[class*="mention"]:hover {
+.reaction-2A2y9y:hover {
     background: rgba(59, 130, 246, 0.4) !important;
 }
 
-/* 🌌 Tooltips */
-[class*="tooltip"] {
-    background: rgba(15, 23, 42, 0.9) !important;
+/* 🔘 Boutons */
+.button-38aScr {
+    border-radius: var(--luna-radius-big) !important;
+    background: linear-gradient(135deg, var(--luna-accent), var(--luna-accent-deep)) !important;
     color: white !important;
-    border-radius: 6px !important;
-    padding: 4px 8px !important;
-    font-size: 0.85em !important;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.6) !important;
+    padding: 6px 14px !important;
+    font-size: 0.9em !important;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.button-38aScr:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+/* 📦 Cartes / panneaux */
+.card-2TuZPZ, 
+.userPopout-2j1gM4,
+.embedFull-1HGV2S {
+    background: rgba(15, 23, 42, 0.7) !important;
+    border-radius: var(--luna-radius) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+    padding: var(--luna-padding);
+}
+
+/* 🔎 Barre de recherche */
+.searchBar-3TnChZ {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border-radius: var(--luna-radius-big) !important;
+    padding: 6px 12px !important;
+    font-size: 0.9em;
+}
+
+/* 📜 Menus contextuels / popouts */
+.menu-2TXYjN, 
+.popout-3sVMXz, 
+.modal-2LIEKY {
+    background: rgba(11, 13, 23, 0.9) !important;
+    border-radius: var(--luna-radius) !important;
+    backdrop-filter: blur(8px);
+    padding: var(--luna-padding);
+}
+
+/* 🔔 Mentions */
+.mention {
+    background: rgba(59, 130, 246, 0.3) !important;
+    color: white !important;
+    border-radius: var(--luna-radius-small) !important;
+    padding: 2px 6px;
+    font-weight: 500;
 }

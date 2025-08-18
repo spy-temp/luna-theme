@@ -1,47 +1,37 @@
 /**
- * @name Luna Theme - Base
- * @version 1.1
- * @description Variables globales + arrondis cohérents
- * @author SpyWare
+ * Luna Theme — ANIMATIONS
+ * Effets dynamiques
  */
 
-/* --- Couleurs principales --- */
-:root {
-    --luna-accent: #3b82f6;         /* Bleu galaxie */
-    --luna-accent-dark: #1e40af;
-    --luna-bg-dark: #0b0d17;        /* Fond principal */
-    --luna-bg-darker: #090a12;
-    --luna-bg-card: rgba(15, 23, 42, 0.6);
-
-    --luna-text: #e2e8f0;
-    --luna-text-muted: #94a3b8;
-
-    /* --- Arrondis globaux --- */
-    --radius-small: 6px;
-    --radius-medium: 12px;
-    --radius-large: 18px;
-    --radius-pill: 999px;
-
-    /* --- Ombres --- */
-    --shadow-soft: 0 0 8px rgba(59, 130, 246, 0.25);
-    --shadow-strong: 0 0 16px rgba(59, 130, 246, 0.45);
+/* 🌌 Effet étoiles animées (subtil) */
+.appMount-2yBXZl::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: transparent url("https://i.imgur.com/3KXEvzK.png") repeat;
+    animation: lunaStars 180s linear infinite;
+    opacity: 0.3;
+    z-index: -2;
+}
+@keyframes lunaStars {
+    from { background-position: 0 0; }
+    to { background-position: -5000px 2500px; }
 }
 
-/* Forcer le mode sombre avec notre fond galaxie */
-.theme-dark {
-    --background-primary: var(--luna-bg-dark);
-    --background-secondary: #0f111c;
-    --background-tertiary: #131625;
-    --background-floating: #0d0f1a;
-
-    --text-normal: var(--luna-text);
-    --text-muted: var(--luna-text-muted);
+/* ✨ Hover smooth sur tous les boutons */
+.button-38aScr,
+.reaction-2A2y9y {
+    transition: all 0.2s ease-in-out;
 }
 
-/* --- Textes --- */
-[class*="title"], 
-[class*="username"], 
-[class*="name"], 
-[class*="defaultColor"] {
-    color: var(--luna-text) !important;
+/* 📜 Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--luna-accent), var(--luna-accent-deep));
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
 }

@@ -1,131 +1,43 @@
+/**
+ * Luna Theme — BASE
+ * Variables principales et réglages globaux
+ */
+
 :root {
-    /* === 🌠 Palette galactique étendue === */
-    --space-void: #060813;
-    --space-deep: #0b0d17;
-    --space-dark: #0f111c;
-    --space-midnight: #131625;
-    --space-dust: #1a1e2e;
-    --space-nebula: #242a40;
-    
-    --star-blue: #3b82f6;
-    --star-blue-light: #60a5fa;
-    --star-blue-dark: #2563eb;
-    
-    --nebula-purple: #7c3aed;
-    --cosmic-teal: #0ea5e9;
-    --supernova-yellow: #f59e0b;
-    
-    /* === 📜 Hiérarchie typographique === */
-    --text-glowing: #ffffff;
-    --text-primary: #f8fafc;
-    --text-secondary: #e2e8f0;
-    --text-muted: #94a3b8;
-    --text-code: #7dd3fc;
-    
-    /* === 🏗️ Système de spacing === */
-    --spacing-xxs: 2px;
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 12px;
-    --spacing-lg: 16px;
-    --spacing-xl: 20px;
-    --spacing-xxl: 24px;
-    --spacing-xxxl: 32px;
-    
-    /* === 🟦 Bordures et radius === */
-    --border-radius-sm: 4px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 12px;
-    --border-radius-xl: 16px;
-    --border-radius-round: 999px;
-    
-    --border-width-sm: 1px;
-    --border-width-md: 2px;
-    --border-width-lg: 3px;
-    
-    /* === 🌟 Effets lumineux === */
-    --glow-xs: 0 1px 3px rgba(59, 130, 246, 0.12);
-    --glow-sm: 0 2px 8px rgba(59, 130, 246, 0.15);
-    --glow-md: 0 4px 12px rgba(59, 130, 246, 0.2);
-    --glow-lg: 0 6px 20px rgba(59, 130, 246, 0.25);
-    --glow-xl: 0 8px 30px rgba(59, 130, 246, 0.3);
-    
-    --glow-inner: inset 0 0 8px rgba(59, 130, 246, 0.2);
-    
-    /* === ⚡ Transitions et animations === */
-    --transition-ultrafast: 80ms ease;
-    --transition-fast: 120ms ease;
-    --transition-normal: 250ms ease;
-    --transition-slow: 400ms ease;
-    --transition-superslow: 600ms ease;
-    
-    /* === 🎭 Opacités === */
-    --opacity-disabled: 0.5;
-    --opacity-hover: 0.8;
-    --opacity-active: 0.6;
-    
-    /* === Overrides Discord étendus === */
-    --background-primary: var(--space-deep);
-    --background-secondary: var(--space-dark);
-    --background-secondary-alt: var(--space-midnight);
-    --background-tertiary: var(--space-dust);
-    --background-accent: var(--star-blue);
-    --background-accent-gradient: linear-gradient(135deg, var(--star-blue), var(--nebula-purple));
-    --background-floating: var(--space-midnight);
-    --background-modifier-hover: rgba(59, 130, 246, 0.1);
-    --background-modifier-active: rgba(59, 130, 246, 0.2);
-    --background-modifier-selected: rgba(59, 130, 246, 0.25);
-    --background-modifier-accent: rgba(59, 130, 246, 0.06);
-    
-    --text-normal: var(--text-primary);
-    --text-link: var(--cosmic-teal);
-    --text-positive: var(--star-blue);
-    --text-warning: var(--supernova-yellow);
-    --text-danger: #ef4444;
-    
-    --brand-experiment: var(--star-blue);
-    --brand-experiment-560: var(--star-blue-light);
-    
-    --status-positive: var(--star-blue);
-    --status-warning: var(--supernova-yellow);
-    --status-danger: #ef4444;
-    
-    /* === 🏷️ Mentions et tags === */
-    --mention-background: rgba(59, 130, 246, 0.15);
-    --mention-border: rgba(59, 130, 246, 0.3);
-    --mention-text: #93c5fd;
-    
-    --channelmention-background: rgba(59, 130, 246, 0.1);
-    --channelmention-border: rgba(59, 130, 246, 0.2);
-    --channelmention-text: #bfdbfe;
-    
-    /* === 🎨 Embeds === */
-    --embed-background: rgba(15, 23, 42, 0.3);
-    --embed-border: rgba(59, 130, 246, 0.2);
-    
-    /* === 🖼️ Avatars === */
-    --avatar-radius: var(--border-radius-lg);
-    --avatar-border: 2px solid rgba(59, 130, 246, 0.3);
-    
-    /* === 📜 Scrollbar === */
-    --scrollbar-width: 10px;
-    --scrollbar-thin-width: 6px;
-    --scrollbar-thumb: rgba(59, 130, 246, 0.4);
-    --scrollbar-thumb-hover: var(--star-blue);
-    
-    /* === 🎛️ Inputs === */
-    --input-background: rgba(15, 23, 42, 0.4);
-    --input-border: rgba(59, 130, 246, 0.2);
-    --input-border-hover: rgba(59, 130, 246, 0.3);
-    --input-border-active: var(--star-blue);
-    --input-placeholder: #64748b;
-    
-    /* === 🪟 Fenêtres === */
-    --window-background: rgba(15, 17, 28, 0.9);
-    --window-border: rgba(59, 130, 246, 0.25);
-    --window-shadow: var(--glow-lg);
-    
-    /* === 🎶 Spotify === */
-    --spotify-green: #1db954;
-    --spotify-now-playing: rgba(29, 185, 84, 0.1);
+    /* Couleurs principales */
+    --luna-bg: #0b0d17; /* fond principal */
+    --luna-bg-secondary: #11131f;
+    --luna-bg-tertiary: #1a1d2e;
+    --luna-fg: #e2e8f0; /* texte normal */
+    --luna-fg-muted: #94a3b8;
+    --luna-accent: #3b82f6; /* bleu clair */
+    --luna-accent-deep: #1e3a8a; /* bleu foncé */
+    --luna-success: #22c55e;
+    --luna-warning: #facc15;
+    --luna-danger: #ef4444;
+
+    /* Radius global */
+    --luna-radius-small: 6px;
+    --luna-radius: 8px;
+    --luna-radius-big: 12px;
+
+    /* Espacement */
+    --luna-padding-small: 4px;
+    --luna-padding: 8px;
+    --luna-padding-big: 12px;
+
+    /* Police */
+    --luna-font: "Inter", "Segoe UI", sans-serif;
+}
+
+/* Reset global */
+* {
+    font-family: var(--luna-font) !important;
+    box-sizing: border-box;
+}
+
+/* Fond général */
+body, .appMount-2yBXZl {
+    background: var(--luna-bg) !important;
+    color: var(--luna-fg) !important;
 }
