@@ -1,37 +1,39 @@
-/**
- * Luna Theme — ANIMATIONS
- * Effets dynamiques
- */
+/* Animation des icônes de serveur */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+.guilds-wrapper .guild.selected {
+    animation: float 3s ease-in-out infinite;
+}
 
-/* 🌌 Effet étoiles animées (subtil) */
-.appMount-2yBXZl::after {
+/* Animation des mentions */
+.mention {
+    position: relative;
+}
+.mention::after {
     content: "";
     position: absolute;
-    inset: 0;
-    background: transparent url("https://i.imgur.com/3KXEvzK.png") repeat;
-    animation: lunaStars 180s linear infinite;
-    opacity: 0.3;
-    z-index: -2;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: var(--border-radius-sm);
+    border: 2px solid var(--accent-color);
+    opacity: 0;
+    animation: pulseMention 2s infinite;
 }
-@keyframes lunaStars {
-    from { background-position: 0 0; }
-    to { background-position: -5000px 2500px; }
-}
-
-/* ✨ Hover smooth sur tous les boutons */
-.button-38aScr,
-.reaction-2A2y9y {
-    transition: all 0.2s ease-in-out;
+@keyframes pulseMention {
+    0% { opacity: 0; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+    100% { opacity: 0; transform: scale(1); }
 }
 
-/* 📜 Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
+/* Animation entrée messages */
+@keyframes messageIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--luna-accent), var(--luna-accent-deep));
-    border-radius: 10px;
-}
-::-webkit-scrollbar-track {
-    background: transparent;
+.message {
+    animation: messageIn 0.3s ease-out;
 }

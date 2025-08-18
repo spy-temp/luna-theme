@@ -1,0 +1,12 @@
+/* Personnalisation de la page des paramètres */
+.userSettingsView {
+    background: rgba(10, 14, 23, 0.9) !important;
+    backdrop-filter: blur(10px);
+}
+.sidebarRegion {
+    background: rgba(26, 33, 56, 0.7) !important;
+}
+.itemDefault-1P4H49:hover {
+    background: var(--accent-color) !important;
+    color: white !important;
+}

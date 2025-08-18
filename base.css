@@ -1,43 +1,37 @@
-/**
- * Luna Theme — BASE
- * Variables principales et réglages globaux
- */
-
 :root {
     /* Couleurs principales */
-    --luna-bg: #0b0d17; /* fond principal */
-    --luna-bg-secondary: #11131f;
-    --luna-bg-tertiary: #1a1d2e;
-    --luna-fg: #e2e8f0; /* texte normal */
-    --luna-fg-muted: #94a3b8;
-    --luna-accent: #3b82f6; /* bleu clair */
-    --luna-accent-deep: #1e3a8a; /* bleu foncé */
-    --luna-success: #22c55e;
-    --luna-warning: #facc15;
-    --luna-danger: #ef4444;
-
-    /* Radius global */
-    --luna-radius-small: 6px;
-    --luna-radius: 8px;
-    --luna-radius-big: 12px;
-
-    /* Espacement */
-    --luna-padding-small: 4px;
-    --luna-padding: 8px;
-    --luna-padding-big: 12px;
-
-    /* Police */
-    --luna-font: "Inter", "Segoe UI", sans-serif;
+    --main-color: #0a0e17;
+    --secondary-color: #1a2138;
+    --accent-color: #4a7dff;
+    --accent-hover: #6b9dff;
+    --text-normal: #e0e7ff;
+    --text-muted: #a0a8c0;
+    
+    /* Arrondis */
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    --border-radius-lg: 16px;
+    
+    /* Espacements */
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    
+    /* Effets */
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Reset global */
-* {
-    font-family: var(--luna-font) !important;
-    box-sizing: border-box;
+/* Base du thème */
+.app, .bg-primary {
+    background: var(--main-color) !important;
 }
 
-/* Fond général */
-body, .appMount-2yBXZl {
-    background: var(--luna-bg) !important;
-    color: var(--luna-fg) !important;
+/* Barre de défilement */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 5px;
 }

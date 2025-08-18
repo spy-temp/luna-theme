@@ -1,79 +1,41 @@
-/**
- * Luna Theme — COMPONENTS
- * Messages, cartes, boutons, menus...
- */
-
-/* 💬 Messages */
-.message-2qnXI6, 
-[class*="messageListItem"] {
-    background: rgba(17, 23, 40, 0.6) !important;
-    border-radius: var(--luna-radius) !important;
-    margin: 4px 0;
-    padding: var(--luna-padding) !important;
-    transition: background 0.2s ease;
+/* Serveurs */
+.guilds-wrapper .guild {
+    border-radius: var(--border-radius) !important;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
-.message-2qnXI6:hover {
-    background: rgba(59, 130, 246, 0.15) !important;
+.guilds-wrapper .guild:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
 }
 
-/* 😀 Reactions / Emojis */
-.reaction-2A2y9y {
-    background: rgba(59, 130, 246, 0.25) !important;
-    border-radius: var(--luna-radius-small) !important;
-    padding: 2px 6px;
-    transition: background 0.2s ease;
+/* Messages */
+.message {
+    background: rgba(26, 33, 56, 0.7) !important;
+    border-radius: var(--border-radius-lg) !important;
+    margin-bottom: var(--spacing-md);
+    transition: transform 0.2s;
 }
-.reaction-2A2y9y:hover {
-    background: rgba(59, 130, 246, 0.4) !important;
-}
-
-/* 🔘 Boutons */
-.button-38aScr {
-    border-radius: var(--luna-radius-big) !important;
-    background: linear-gradient(135deg, var(--luna-accent), var(--luna-accent-deep)) !important;
-    color: white !important;
-    padding: 6px 14px !important;
-    font-size: 0.9em !important;
-    transition: transform 0.15s ease, box-shadow 0.2s ease;
-}
-.button-38aScr:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+.message:hover {
+    transform: translateX(2px);
+    background: rgba(26, 33, 56, 0.9) !important;
 }
 
-/* 📦 Cartes / panneaux */
-.card-2TuZPZ, 
-.userPopout-2j1gM4,
-.embedFull-1HGV2S {
-    background: rgba(15, 23, 42, 0.7) !important;
-    border-radius: var(--luna-radius) !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
-    padding: var(--luna-padding);
-}
-
-/* 🔎 Barre de recherche */
-.searchBar-3TnChZ {
-    background: rgba(15, 23, 42, 0.6) !important;
-    border-radius: var(--luna-radius-big) !important;
-    padding: 6px 12px !important;
-    font-size: 0.9em;
-}
-
-/* 📜 Menus contextuels / popouts */
-.menu-2TXYjN, 
-.popout-3sVMXz, 
-.modal-2LIEKY {
-    background: rgba(11, 13, 23, 0.9) !important;
-    border-radius: var(--luna-radius) !important;
+/* Barre latérale */
+.sidebar {
+    background: rgba(10, 14, 23, 0.8) !important;
     backdrop-filter: blur(8px);
-    padding: var(--luna-padding);
 }
 
-/* 🔔 Mentions */
-.mention {
-    background: rgba(59, 130, 246, 0.3) !important;
-    color: white !important;
-    border-radius: var(--luna-radius-small) !important;
-    padding: 2px 6px;
-    font-weight: 500;
+/* Boutons */
+.button {
+    border-radius: var(--border-radius-sm) !important;
+    transition: all 0.2s;
+}
+.button-primary {
+    background-color: var(--accent-color) !important;
+}
+.button-primary:hover {
+    background-color: var(--accent-hover) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
