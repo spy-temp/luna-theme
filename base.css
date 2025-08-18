@@ -1,0 +1,38 @@
+:root {
+    /* --- Couleurs principales --- */
+    --accent-hue: 220; /* bleu profond */
+    --accent-saturation: 90%;
+    --accent-lightness: 55%;
+
+    --background-primary: #0b0d17;
+    --background-secondary: #0f111c;
+    --background-tertiary: #131625; 
+    --background-floating: #0d0f1a;
+
+    --text-normal: #e2e8f0;
+    --text-muted: #94a3b8;
+    --channels-default: #64748b;
+
+    /* --- Messages --- */
+    --message-radius: 18px;
+    --message-padding-top: 8px;
+    --message-padding-side: 12px;
+
+    /* --- Cartes / panneaux --- */
+    --card-radius: 16px;
+
+    /* --- Boutons --- */
+    --button-height: 36px;
+    --button-padding: 0 20px;
+
+    /* --- Entrées (inputs) --- */
+    --input-height: 36px;
+    --input-padding: 0 12px;
+
+    /* --- Popups & Modals --- */
+    --popout-radius: 14px;
+
+    /* --- Scrollbar --- */
+    --scrollbar-width: 8px;
+    --scrollbar-thin-width: 5px;
+}
