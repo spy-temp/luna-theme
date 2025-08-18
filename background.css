@@ -1,0 +1,12 @@
+body {
+    background: url("https://i.imgur.com/IYArJlz.png") no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: -1;
+}
