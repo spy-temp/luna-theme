@@ -1,0 +1,79 @@
+/**
+ * Luna Theme Premium — user-settings.css
+ * Ajustements page Paramètres + switches, sliders, profils
+ */
+
+/* Container settings */
+.standardSidebarView-E9Pc3j, .contentRegion-3HkfJJ {
+  background: transparent !important;
+}
+.sidebarRegionScroller-FXiQOh {
+  background: rgba(10,14,28,.55);
+  backdrop-filter: blur(8px);
+  border-right: var(--line);
+}
+.contentRegionScroller-2_GT_N {
+  background: rgba(16,22,48,.45);
+  backdrop-filter: blur(6px);
+}
+
+/* Tuiles de section */
+.item-3XjbnG, .background-3d_SjE, .cardPrimary-3qRT__, .card-2ART2V {
+  border-radius: var(--radius-lg) !important;
+  border: var(--line) !important;
+  background: linear-gradient(180deg, rgba(21,29,60,.96), rgba(15,22,48,.96)) !important;
+}
+
+/* Switches */
+.container-1QtPKm {
+  --switch-bg: rgba(122,166,255,.25);
+  --switch-dot: #fff;
+}
+.container-1QtPKm .slider-32CRPX {
+  background: var(--switch-bg);
+  border-radius: 999px;
+}
+.container-1QtPKm.checked-16gMAN .slider-32CRPX {
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  box-shadow: var(--glow-soft);
+}
+.container-1QtPKm .input-125oad:checked + .slider-32CRPX::after {
+  background: var(--switch-dot);
+}
+
+/* Sliders */
+.bar-1Bhnl9 {
+  background: rgba(122,166,255,.22) !important;
+  border-radius: 999px !important;
+}
+.barFill-2Bh7CX, .markDash-yk2kJ- {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2)) !important;
+}
+
+/* Profils */
+.userProfileOuter-2tQwNf, .userPopout-2j1gM4 {
+  background: linear-gradient(180deg, rgba(20,28,58,.98), rgba(14,20,44,.98)) !important;
+  border: var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-2);
+}
+.userProfileModal-3j47Wv .banner-1YaD3N {
+  filter: saturate(120%) brightness(1.05);
+}
+
+/* Champs + tokens */
+.formItem-2VTTbM .title-31SJ6t, .item-3XjbnG .title-3sZWYQ {
+  color: var(--text-1);
+  font-weight: 700;
+}
+.description-foE_WP, .labelDescriptor-1PqHgD {
+  color: var(--text-2);
+}
+
+/* A propos / About Me Markdown */
+.aboutMeSection-1Fw5Ia .markup-eYLPri {
+  background: rgba(8,12,24,.6);
+  border: var(--line);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
+}

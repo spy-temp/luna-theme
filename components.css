@@ -1,0 +1,144 @@
+/**
+ * Luna Theme Premium — components.css
+ * Boutons, barres latérales, messages, menus, popovers, tooltips, modals
+ */
+
+/* Barre latérale & serveurs */
+.wrapper-1_HaEi, .guilds-2JjMmN {
+  background: transparent !important;
+}
+.guilds-2JjMmN .scroller-3X7KbA {
+  padding: 10px 6px;
+}
+.circleIconButton-1VxDrg, .guildIcon-2SUGiq {
+  background: linear-gradient(180deg, var(--bg-4), var(--bg-3));
+  border-radius: var(--radius-md) !important;
+  border: var(--line);
+  box-shadow: var(--shadow-1);
+}
+.circleIconButton-1VxDrg:hover, .guildIcon-2SUGiq:hover {
+  box-shadow: var(--glow-soft);
+  transform: translateY(-1px);
+}
+
+/* Sidebar canaux */
+.sidebar-2K8pFh, .container-1NXEtd {
+  background: rgba(10,14,28, .6);
+  backdrop-filter: blur(10px);
+  border-right: var(--line);
+}
+.modeSelected-3DmyhH .link-1_kTxV, .modeSelected-3DmyhH .content-1gYQeQ {
+  background: linear-gradient(90deg, rgba(77,127,255,.15), transparent);
+  border-radius: var(--radius-sm);
+}
+.modeMuted-2T4MDZ .name-3Vmqxm { color: var(--muted); }
+
+/* En-tête serveur / channel */
+.container-1eFtFS, .title-31SJ6t {
+  background: rgba(12,16,30,.6) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: var(--line);
+}
+
+/* Zone de discussion */
+.chatContent-3KubbW {
+  background: rgba(15,22,48,.55) !important;
+  backdrop-filter: blur(6px);
+  border-left: var(--line);
+}
+
+/* Bulles de message (arrondis modérés) */
+.message-2CShn3, .messageListItem-ZZ7v6g {
+  margin: 6px 8px;
+}
+.message-2CShn3 .contents-2MsGLg {
+  background: linear-gradient(180deg, rgba(20,28,58,.92), rgba(16,22,48,.92));
+  border: var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+  padding: 8px 10px;
+}
+.message-2CShn3:hover .contents-2MsGLg { box-shadow: var(--shadow-2); }
+
+/* Mentions & surlignages */
+.mention, .mentioned-Tre-dv {
+  background: linear-gradient(90deg, rgba(77,127,255,.22), rgba(77,127,255,.05)) !important;
+  border-left: 2px solid var(--accent);
+  padding-left: 6px;
+}
+.markup-eYLPri code, .markup-eYLPri pre {
+  background: rgba(8,12,24,.8);
+  border: var(--line);
+  border-radius: var(--radius-sm);
+}
+
+/* Bar d’écriture */
+.form-3gdLxP, .channelTextArea-1FufC0 {
+  background: rgba(15,22,48,.65);
+  border-top: var(--line);
+}
+.textArea-2CLwUE, .placeholder-1rCBhr {
+  color: var(--text-2);
+}
+
+/* Pièces jointes / embeds */
+.embedWrapper-lXpS3L, .attachment-16cAbS, .container-x059i8 {
+  background: linear-gradient(180deg, rgba(17,24,48,.96), rgba(14,20,44,.96));
+  border: var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+}
+.embedTitle-2n1pEb { color: var(--text-1); font-weight: 700; }
+.embedDescription-1Cuq9a { color: var(--text-2); }
+
+/* Menus contextuels / popouts */
+.menu-1QACrS, .submenu-1apzyU, .container-3baos1, .popout-2iWAc- {
+  background: linear-gradient(180deg, rgba(17,24,48,.98), rgba(12,18,40,.98)) !important;
+  border: var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-2);
+}
+.menu-1QACrS .separator-1So4YB { border-color: rgba(122,166,255,.2); }
+
+/* Tooltips */
+.tooltip-14MtrL {
+  background: linear-gradient(180deg, #111832, #0c1328);
+  border: var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-1);
+  color: var(--text-1);
+}
+
+/* Modals */
+.root-g14mjS, .modal-3O0aXp, .footer-31IekZ {
+  background: linear-gradient(180deg, rgba(17,24,48,.98), rgba(12,18,40,.98)) !important;
+  border: var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+}
+
+/* Badges / états */
+.lookFilled-1GseHa.colorGreen-29iAKY { background: linear-gradient(180deg, #4ad5a6, #35b78c) !important; }
+.lookFilled-1GseHa.colorRed-1TFJan { background: linear-gradient(180deg, #ff7b7b, #ff5858) !important; }
+.lookFilled-1GseHa.colorYellow-2JqYxZ { background: linear-gradient(180deg, #ffd67a, #ffc043) !important; }
+
+/* Barre de recherche */
+.searchBar-3TnChZ, .search-2Mwzzq {
+  background: rgba(17,24,48,.8);
+  border: var(--line);
+  border-radius: var(--radius-md);
+}
+
+/* Pings / non lus */
+.unread-36eUEm, .bar-30k2ka, .unreadMentionsIndicatorTop-gA6RCh, .unreadMentionsIndicatorBottom-3RJMnQ {
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  box-shadow: var(--glow-soft);
+  border-radius: 999px;
+}
+
+/* Paramètres mini-cards (nitro, profils, etc.) */
+.cardPrimary-3qRT__, .cardPrimaryEditable-2mz_3i, .card-2ART2V {
+  background: linear-gradient(180deg, rgba(20,28,58,.96), rgba(16,22,48,.96)) !important;
+  border: var(--line);
+  border-radius: var(--radius-lg);
+}
