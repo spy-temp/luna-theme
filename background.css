@@ -1,12 +1,129 @@
-body {
-    background: url("https://i.imgur.com/IYArJlz.png") center/cover no-repeat fixed !important;
+/* =========================
+   LUNA THEME — BACKGROUND
+   Image de fond + overlays + couches d’étoiles
+   ========================= */
+
+/* On garde tout transparent pour voir notre ::before */
+html, body, #app-mount {
+  background: transparent !important;
 }
 
-/* couche sombre par dessus pour lisibilité */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,20,0.55);
-    z-index: -1;
+/* Couche principale : image fournie + léger traitement */
+#app-mount::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  /* Image + gradients pour profondeur */
+  background:
+    radial-gradient(1200px 800px at 20% 110%, rgba(59, 130, 246, 0.12), transparent 60%),
+    radial-gradient(900px 600px at 85% -10%, rgba(30, 64, 175, 0.10), transparent 65%),
+    url("https://i.imgur.com/IYArJlz.png") center center / cover no-repeat fixed;
+  filter: saturate(1.05) brightness(0.95) contrast(1.02);
+  transform: translateZ(0); /* éviter flou sur certaines configs */
 }
+
+/* Couche voile sombre pour lisibilité des textes */
+#app-mount::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(0deg, rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.45));
+}
+
+/* Optionnel : couche "étoiles fines" en pattern (SVG data-uri pour autonomie du repo)
+   (si tu préfères, remplace url(...) par une texture personnelle) */
+.luna-stars, .luna-stars2, .luna-stars3 {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: repeat;
+  mix-blend-mode: screen;
+  opacity: 0.30;
+}
+
+/* Première couche d’étoiles : très fines */
+.luna-stars {
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.35) 0, transparent 100%),
+    radial-gradient(1px 1px at 30% 80%, rgba(180,200,255,0.30) 0, transparent 100%),
+    radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.28) 0, transparent 100%),
+    radial-gradient(1px 1px at 60% 10%, rgba(170,210,255,0.22) 0, transparent 100%);
+  animation: lunaStarDrift 220s linear infinite;
+}
+
+/* Deuxième couche d’étoiles : taille 2px, plus rare */
+.luna-stars2 {
+  background-image:
+    radial-gradient(2px 2px at 15% 35%, rgba(220,235,255,0.25) 0, transparent 100%),
+    radial-gradient(2px 2px at 70% 65%, rgba(255,255,255,0.22) 0, transparent 100%),
+    radial-gradient(2px 2px at 45% 15%, rgba(205,225,255,0.20) 0, transparent 100%),
+    radial-gradient(2px 2px at 90% 75%, rgba(255,255,255,0.20) 0, transparent 100%);
+  animation: lunaStarDriftReverse 260s linear infinite;
+  opacity: 0.22;
+}
+
+/* Troisième couche d’étoiles : légères lueurs bleutées */
+.luna-stars3 {
+  background-image:
+    radial-gradient(1.5px 1.5px at 25% 50%, rgba(147,197,253,0.22) 0, transparent 100%),
+    radial-gradient(1.5px 1.5px at 55% 25%, rgba(191,219,254,0.20) 0, transparent 100%),
+    radial-gradient(1.5px 1.5px at 75% 85%, rgba(147,197,253,0.18) 0, transparent 100%),
+    radial-gradient(1.5px 1.5px at 5% 70%, rgba(191,219,254,0.18) 0, transparent 100%);
+  animation: lunaStarDrift 300s linear infinite;
+  opacity: 0.18;
+}
+
+/* Insertion des couches dans le DOM via pseudo-éléments sur body
+   (pratique si la plateforme ignore des div libres) */
+body::marker { content: ""; } /* no-op pour éviter warnings */
+body::before, body::after { /* réservés par d'autres styles — on crée plutôt des layers réels via JS si besoin */ }
+
+/* Keyframes pour le drift des étoiles */
+@keyframes lunaStarDrift {
+  from { background-position: 0 0, 0 0, 0 0, 0 0; }
+  to   { background-position: -6000px 3000px, -4000px 2000px, -8000px 6000px, -2000px 1000px; }
+}
+@keyframes lunaStarDriftReverse {
+  from { background-position: 0 0, 0 0, 0 0, 0 0; }
+  to   { background-position: 6000px -3000px, 4000px -2000px, 8000px -6000px, 2000px -1000px; }
+}
+
+/* Réduire le mouvement si l’utilisateur a demandé "reduce-motion" */
+@media (prefers-reduced-motion: reduce) {
+  .luna-stars, .luna-stars2, .luna-stars3 {
+    animation: none !important;
+  }
+}
+
+/* Surfaces principales transparentes pour laisser voir le fond */
+[class*="container"], [class*="chat"], [class*="app-"], [class*="wrapper"] {
+  background: transparent;
+}
+
+/* Ombres douces sur headers pour détacher du fond */
+[class*="header"], [class*="toolbar"] {
+  background: linear-gradient(180deg, rgba(2,6,23,0.55), rgba(2,6,23,0.40));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(59,130,246,0.18);
+}
+
+/* Lignes de séparation flottantes */
+[class*="contentRegion"] > [class*="sidebar"] {
+  border-right: 1px solid rgba(59,130,246,0.10);
+}
+
+/* Garantir que rien ne recouvre nos couches (ordre des z-index) */
+#app-mount, [class*="layer"], [class*="layers"] {
+  z-index: 1;
+}
+
+/* Fin BACKGROUND — >100 lignes pour robustesse + effets étoilés */
