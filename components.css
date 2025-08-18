@@ -1,54 +1,40 @@
-/* 💬 Messages — arrondis + effet verre */
+/* Messages */
 [class*="message"] {
-  border-radius: var(--message-radius) !important;
-  background: rgba(22, 28, 45, 0.45) !important;
-  margin: 4px 8px !important;
-  padding: var(--message-padding-top) var(--message-padding-side) !important;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+    border-radius: var(--message-radius) !important;
+    padding: var(--message-padding-top) var(--message-padding-side) !important;
+    background: rgba(22,28,45,0.45) !important;
+    backdrop-filter: blur(6px);
 }
 
-/* 📦 Cartes / panneaux / profils */
-[class*="card"], [class*="Card"], [class*="container"], [class*="panel"] {
-  border-radius: var(--card-radius) !important;
-  background: rgba(15, 23, 42, 0.6) !important;
-  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+/* Cartes, popups */
+[class*="container"], [class*="card"], [class*="wrapper"] {
+    border-radius: var(--card-radius) !important;
+    background: rgba(15,23,42,0.6) !important;
+    backdrop-filter: blur(8px);
 }
 
-/* 🔘 Boutons — style pill + dégradé bleu */
+/* Boutons */
 button, [role="button"] {
-  border-radius: 9999px !important;
+    border-radius: 9999px !important;
 }
-button[class*="lookFilled"], button[class*="colorBrand"] {
-  background-image: linear-gradient(135deg, #2563eb, #1e40af) !important;
-  color: #fff !important;
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-button[class*="lookFilled"]:hover, button[class*="colorBrand"]:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
+button[class*="colorBrand"], button[class*="lookFilled"] {
+    background: linear-gradient(135deg, var(--brand-experiment), var(--brand-experiment-560)) !important;
+    color: #fff !important;
 }
 
-/* 🔎 Barre de recherche + inputs */
-input, textarea, [class*="searchBar"], [class*="textArea"] {
-  border-radius: var(--input-height) !important;
-  background: rgba(15, 23, 42, 0.55) !important;
-  color: var(--text-normal) !important;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+/* Inputs */
+textarea, input {
+    border-radius: var(--input-height) !important;
+    background: var(--channeltextarea-background) !important;
+    color: var(--text-normal) !important;
 }
 
-/* 📜 Scrollbar — déjà OK */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: var(--scrollbar-width);
-  height: var(--scrollbar-thin-width);
+    width: var(--scrollbar-width);
+    height: var(--scrollbar-thin-width);
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #3b82f6, #1e40af);
-  border-radius: 10px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
+    background: linear-gradient(180deg, #3b82f6, #1e40af);
+    border-radius: 10px;
 }
