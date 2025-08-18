@@ -1,199 +1,80 @@
-/* =========================
-   LUNA THEME — BASE TOKENS
-   Variables globales + neutralisation des fonds Discord
-   ========================= */
+/**
+ * Luna Theme - Base
+ * Variables globales pour les couleurs, arrondis et tailles
+ */
 
-/* Couleurs & tokens principaux */
 :root {
-  /* Accent (bleu galaxie) */
-  --brand-experiment: #3b82f6;
-  --brand-experiment-430: #5ea3ff;
-  --brand-experiment-500: #3b82f6;
-  --brand-experiment-530: #2f6fe0;
-  --brand-experiment-560: #1e40af;
-  --brand-experiment-600: #1f4fbf;
-  --brand-foreground: #dbeafe;
+    /* === 🌌 Couleurs principales === */
+    --color-accent: #3b82f6; /* Bleu galaxie */
+    --color-accent-hover: #60a5fa;
+    --color-accent-active: #2563eb;
 
-  /* Surfaces (semi-transparentes pour voir le fond galaxie) */
-  --background-primary: rgba(11, 13, 23, 0.74);
-  --background-secondary: rgba(15, 17, 28, 0.66);
-  --background-secondary-alt: rgba(15, 17, 28, 0.62);
-  --background-tertiary: rgba(19, 22, 37, 0.60);
-  --background-accent: rgba(30, 41, 59, 0.60);
-  --background-floating: rgba(8, 10, 20, 0.78);
+    --color-bg-primary: #0b0d17; /* Fond principal */
+    --color-bg-secondary: #0f111c; /* Panneaux secondaires */
+    --color-bg-tertiary: #131625; /* Surcouches */
+    --color-bg-floating: #0d0f1a; /* Popups / menus */
 
-  /* Texte */
-  --text-normal: #e2e8f0;
-  --text-muted: #94a3b8;
-  --text-link: #93c5fd;
-  --interactive-normal: #cbd5e1;
-  --interactive-hover: #ffffff;
-  --interactive-active: #ffffff;
-  --interactive-muted: #64748b;
+    --color-text-normal: #e2e8f0; /* Texte principal */
+    --color-text-muted: #94a3b8; /* Texte secondaire */
+    --color-text-inverse: #ffffff; /* Texte clair sur fond foncé */
 
-  /* États / feedback */
-  --status-danger: #ef4444;
-  --status-warning: #f59e0b;
-  --status-success: #22c55e;
-  --mention-background: rgba(30, 64, 175, 0.35);
-  --mention-foreground: #bfdbfe;
-  --brand-gradient-start: #2563eb;
-  --brand-gradient-end: #1e40af;
+    --color-alert: #ef4444; /* Rouge alerte */
+    --color-success: #22c55e; /* Vert succès */
+    --color-warning: #f59e0b; /* Jaune avertissement */
 
-  /* Boîtes, arrondis, ombres */
-  --message-radius: 18px;
-  --card-radius: 16px;
-  --popout-radius: 14px;
-  --tooltip-radius: 10px;
-  --avatar-radius: 14px;
-  --image-radius: 12px;
-  --shadow-soft: 0 6px 30px rgba(30, 64, 175, 0.25);
-  --shadow-focus: 0 0 0 3px rgba(59, 130, 246, 0.35);
+    /* === 🌙 Ombres === */
+    --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.25);
+    --shadow-strong: 0 4px 12px rgba(0, 0, 0, 0.45);
+    --glow-accent: 0 0 10px rgba(59, 130, 246, 0.6);
 
-  /* Entrées & boutons */
-  --button-height: 36px;
-  --button-padding-x: 20px;
-  --input-height: 36px;
-  --input-padding-x: 12px;
-  --channeltextarea-background: rgba(15, 23, 42, 0.55);
+    /* === 🟦 Radius arrondis === */
+    --radius-small: 6px;
+    --radius-medium: 12px;
+    --radius-large: 18px;
+    --radius-round: 999px;
 
-  /* Scrollbars */
-  --scrollbar-width: 8px;
-  --scrollbar-thin-width: 5px;
+    /* === 📐 Dimensions === */
+    --button-height: 36px;
+    --button-padding: 0 18px;
+    --input-height: 36px;
+    --input-padding: 0 12px;
 
-  /* Divers */
-  --divider-strong: rgba(148, 163, 184, 0.18);
-  --divider-soft: rgba(148, 163, 184, 0.10);
-  --elevation-stroke: rgba(148, 163, 184, 0.20);
+    /* === 📜 Scrollbar === */
+    --scrollbar-width: 10px;
+    --scrollbar-thin-width: 6px;
 
-  /* Accent calculé */
-  --accent: linear-gradient(135deg, var(--brand-gradient-start), var(--brand-gradient-end));
+    /* === 🎨 Couleurs Discord overridées === */
+    --background-primary: var(--color-bg-primary);
+    --background-secondary: var(--color-bg-secondary);
+    --background-tertiary: var(--color-bg-tertiary);
+    --background-floating: var(--color-bg-floating);
+    --brand-experiment: var(--color-accent);
+    --text-normal: var(--color-text-normal);
+    --text-muted: var(--color-text-muted);
+
+    /* === ⚡ Animations === */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.25s ease;
+    --transition-slow: 0.4s ease;
+
+    /* === 🌟 Mentions / tags === */
+    --mention-bg: rgba(59, 130, 246, 0.15);
+    --mention-border: rgba(59, 130, 246, 0.6);
+    --mention-text: #93c5fd;
+
+    --tag-bg: rgba(59, 130, 246, 0.2);
+    --tag-border: rgba(59, 130, 246, 0.4);
+    --tag-text: #bfdbfe;
+
+    /* === 🔘 Badges === */
+    --badge-bg: rgba(59, 130, 246, 0.25);
+    --badge-text: #dbeafe;
+
+    /* === 🖼️ Avatars === */
+    --avatar-radius: var(--radius-large);
+
+    /* === 🎛️ Inputs === */
+    --input-bg: rgba(15, 23, 42, 0.6);
+    --input-border: rgba(59, 130, 246, 0.25);
+    --input-placeholder: #64748b;
 }
-
-/* Appliquer les surfaces dans les deux modes pour stabilité */
-.theme-dark, .theme-light {
-  --background-primary: var(--background-primary);
-  --background-secondary: var(--background-secondary);
-  --background-tertiary: var(--background-tertiary);
-  --background-floating: var(--background-floating);
-  --text-normal: var(--text-normal);
-  --text-muted: var(--text-muted);
-  --interactive-normal: var(--interactive-normal);
-  --interactive-hover: var(--interactive-hover);
-  --interactive-active: var(--interactive-active);
-  --interactive-muted: var(--interactive-muted);
-}
-
-/* Neutraliser tout fond opaque afin de révéler l’arrière-plan galaxie */
-html, body {
-  background: transparent !important;
-  color: var(--text-normal);
-}
-
-/* Le mount principal au-dessus du background */
-#app-mount {
-  position: relative;
-  z-index: 1;
-  background: transparent !important;
-}
-
-/* Liens */
-a, [class*="anchor"] {
-  color: var(--text-link);
-  text-decoration: none;
-}
-a:hover, [class*="anchor"]:hover {
-  text-decoration: underline;
-}
-
-/* Sélection de texte */
-::selection {
-  background: rgba(59, 130, 246, 0.35);
-  color: #fff;
-}
-
-/* Diviseurs & lignes */
-hr, [class*="divider"], [class*="separator"] {
-  border: none;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--divider-soft), transparent);
-}
-
-/* Badges & mentions */
-[class*="mention"] {
-  background: var(--mention-background) !important;
-  color: var(--mention-foreground) !important;
-  padding: 0 4px;
-  border-radius: 6px;
-}
-
-/* Tooltips (variables) */
-:root {
-  --tooltip-bg: rgba(11, 13, 23, 0.90);
-  --tooltip-fg: var(--text-normal);
-}
-
-/* Éléments de typographie généraux */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text-normal);
-}
-strong, b {
-  color: #ffffff;
-}
-
-/* Codes / préformaté */
-code, pre, [class*="code"], [class*="pre"] {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-  background: rgba(2, 6, 23, 0.65);
-  color: #e5ecff;
-  border-radius: 10px;
-  border: 1px solid rgba(59, 130, 246, 0.22);
-  padding: 2px 6px;
-}
-
-/* Boutons par défaut : arrondis */
-button, [role="button"] {
-  border-radius: 9999px;
-  border: none;
-}
-
-/* Focus ring accessible */
-:focus-visible {
-  outline: none !important;
-  box-shadow: var(--shadow-focus) !important;
-  border-radius: 10px;
-}
-
-/* Tables (ex.: listes de membres, audit log) */
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-}
-th, td {
-  border-bottom: 1px solid var(--divider-soft);
-  padding: 8px 10px;
-  color: var(--text-normal);
-}
-
-/* États de survol */
-[class*="clickable"]:hover, [role="button"]:hover {
-  filter: brightness(1.03);
-}
-
-/* Curseur progress/attente */
-[aria-busy="true"], .isLoading, .loading {
-  cursor: progress !important;
-}
-
-/* Placeholder de champs */
-::placeholder {
-  color: #8aa0bf;
-  opacity: 0.9;
-}
-
-/* Ombre générique pour surfaces flottantes */
-[class*="floating"], [class*="popout"], [class*="popover"], [class*="tooltip"], [class*="toast"] {
-  box-shadow: var(--shadow-soft);
-}
-
-/* Fin BASE — assez verbeux pour robustesse cross-updates Discord */

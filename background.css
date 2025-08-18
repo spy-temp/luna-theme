@@ -1,129 +1,135 @@
-/* =========================
-   LUNA THEME — BACKGROUND
-   Image de fond + overlays + couches d’étoiles
-   ========================= */
+/**
+ * Luna Theme - Background
+ * Gestion du fond galaxie + overlays
+ */
 
-/* On garde tout transparent pour voir notre ::before */
-html, body, #app-mount {
-  background: transparent !important;
+/* === 🌌 Fond principal galaxie === */
+.appMount__51c26 {
+    background: url("https://i.imgur.com/IYArJlz.png") center center / cover no-repeat fixed;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Couche principale : image fournie + léger traitement */
-#app-mount::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-
-  /* Image + gradients pour profondeur */
-  background:
-    radial-gradient(1200px 800px at 20% 110%, rgba(59, 130, 246, 0.12), transparent 60%),
-    radial-gradient(900px 600px at 85% -10%, rgba(30, 64, 175, 0.10), transparent 65%),
-    url("https://i.imgur.com/IYArJlz.png") center center / cover no-repeat fixed;
-  filter: saturate(1.05) brightness(0.95) contrast(1.02);
-  transform: translateZ(0); /* éviter flou sur certaines configs */
+/* === 🌑 Overlay sombre pour lisibilité === */
+.appMount__51c26::before {
+    content: "";
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 0;
 }
 
-/* Couche voile sombre pour lisibilité des textes */
-#app-mount::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(0deg, rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.45));
+/* === 📦 Tous les panneaux passent au-dessus du fond === */
+.layers__1c917,
+.layer__2efaa,
+.container__590e2,
+.container__20de0,
+.container__26baa,
+.chat__52833 {
+    background: transparent !important;
+    position: relative;
+    z-index: 1;
 }
 
-/* Optionnel : couche "étoiles fines" en pattern (SVG data-uri pour autonomie du repo)
-   (si tu préfères, remplace url(...) par une texture personnelle) */
-.luna-stars, .luna-stars2, .luna-stars3 {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-repeat: repeat;
-  mix-blend-mode: screen;
-  opacity: 0.30;
+/* === 🪐 Overlay gradient pour profondeur === */
+.appMount__51c26::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at top left, rgba(59,130,246,0.15), transparent 70%),
+                radial-gradient(circle at bottom right, rgba(147,197,253,0.15), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* Première couche d’étoiles : très fines */
-.luna-stars {
-  background-image:
-    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.35) 0, transparent 100%),
-    radial-gradient(1px 1px at 30% 80%, rgba(180,200,255,0.30) 0, transparent 100%),
-    radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.28) 0, transparent 100%),
-    radial-gradient(1px 1px at 60% 10%, rgba(170,210,255,0.22) 0, transparent 100%);
-  animation: lunaStarDrift 220s linear infinite;
+/* === 📜 Sidebars (gauche/droite) === */
+.sidebar__02e8d,
+.privateChannels__35e86,
+.container__590e2 {
+    background: rgba(11, 13, 23, 0.7) !important;
+    backdrop-filter: blur(8px);
+    border-right: 1px solid rgba(59, 130, 246, 0.15);
 }
 
-/* Deuxième couche d’étoiles : taille 2px, plus rare */
-.luna-stars2 {
-  background-image:
-    radial-gradient(2px 2px at 15% 35%, rgba(220,235,255,0.25) 0, transparent 100%),
-    radial-gradient(2px 2px at 70% 65%, rgba(255,255,255,0.22) 0, transparent 100%),
-    radial-gradient(2px 2px at 45% 15%, rgba(205,225,255,0.20) 0, transparent 100%),
-    radial-gradient(2px 2px at 90% 75%, rgba(255,255,255,0.20) 0, transparent 100%);
-  animation: lunaStarDriftReverse 260s linear infinite;
-  opacity: 0.22;
+/* === 🗂️ Liste des serveurs (gauche) === */
+.guilds__2b93a {
+    background: rgba(15, 17, 28, 0.75) !important;
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(59, 130, 246, 0.15);
 }
 
-/* Troisième couche d’étoiles : légères lueurs bleutées */
-.luna-stars3 {
-  background-image:
-    radial-gradient(1.5px 1.5px at 25% 50%, rgba(147,197,253,0.22) 0, transparent 100%),
-    radial-gradient(1.5px 1.5px at 55% 25%, rgba(191,219,254,0.20) 0, transparent 100%),
-    radial-gradient(1.5px 1.5px at 75% 85%, rgba(147,197,253,0.18) 0, transparent 100%),
-    radial-gradient(1.5px 1.5px at 5% 70%, rgba(191,219,254,0.18) 0, transparent 100%);
-  animation: lunaStarDrift 300s linear infinite;
-  opacity: 0.18;
+/* === 💬 Zone de chat === */
+.chatContent__5dca8 {
+    background: rgba(13, 15, 26, 0.65) !important;
+    backdrop-filter: blur(6px);
 }
 
-/* Insertion des couches dans le DOM via pseudo-éléments sur body
-   (pratique si la plateforme ignore des div libres) */
-body::marker { content: ""; } /* no-op pour éviter warnings */
-body::before, body::after { /* réservés par d'autres styles — on crée plutôt des layers réels via JS si besoin */ }
-
-/* Keyframes pour le drift des étoiles */
-@keyframes lunaStarDrift {
-  from { background-position: 0 0, 0 0, 0 0, 0 0; }
-  to   { background-position: -6000px 3000px, -4000px 2000px, -8000px 6000px, -2000px 1000px; }
-}
-@keyframes lunaStarDriftReverse {
-  from { background-position: 0 0, 0 0, 0 0, 0 0; }
-  to   { background-position: 6000px -3000px, 4000px -2000px, 8000px -6000px, 2000px -1000px; }
+/* === 📜 Membres (droite) === */
+.members__573eb {
+    background: rgba(15, 17, 28, 0.65) !important;
+    backdrop-filter: blur(6px);
+    border-left: 1px solid rgba(59, 130, 246, 0.15);
 }
 
-/* Réduire le mouvement si l’utilisateur a demandé "reduce-motion" */
-@media (prefers-reduced-motion: reduce) {
-  .luna-stars, .luna-stars2, .luna-stars3 {
-    animation: none !important;
-  }
+/* === 🔍 Barre du haut (serveur / recherche) === */
+.header__104ca,
+.container__11d72 {
+    background: rgba(17, 20, 35, 0.7) !important;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.15);
 }
 
-/* Surfaces principales transparentes pour laisser voir le fond */
-[class*="container"], [class*="chat"], [class*="app-"], [class*="wrapper"] {
-  background: transparent;
+/* === 📑 Barres d’onglets (par ex. Amis, Nitro) === */
+.tabBody__9ca22 {
+    background: rgba(11, 13, 23, 0.6) !important;
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-strong);
 }
 
-/* Ombres douces sur headers pour détacher du fond */
-[class*="header"], [class*="toolbar"] {
-  background: linear-gradient(180deg, rgba(2,6,23,0.55), rgba(2,6,23,0.40));
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(59,130,246,0.18);
+/* === 📜 Fenêtres popups / modals === */
+.layer__2efaa > .focusLock-2tveLW {
+    background: rgba(15, 17, 28, 0.85) !important;
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-strong);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    padding: 10px;
 }
 
-/* Lignes de séparation flottantes */
-[class*="contentRegion"] > [class*="sidebar"] {
-  border-right: 1px solid rgba(59,130,246,0.10);
+/* === 🎛️ Paramètres utilisateur === */
+.standardSidebarView__1129a {
+    background: rgba(13, 15, 26, 0.7) !important;
+    backdrop-filter: blur(6px);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-soft);
 }
 
-/* Garantir que rien ne recouvre nos couches (ordre des z-index) */
-#app-mount, [class*="layer"], [class*="layers"] {
-  z-index: 1;
+/* === 🖼️ Profil utilisateur popup === */
+.userPopout__83f1d {
+    background: rgba(17, 20, 35, 0.85) !important;
+    border-radius: var(--radius-large);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    box-shadow: var(--shadow-strong);
 }
 
-/* Fin BACKGROUND — >100 lignes pour robustesse + effets étoilés */
+/* === 📋 Context menus (clic droit) === */
+.menu__5cf7e {
+    background: rgba(15, 17, 28, 0.95) !important;
+    border-radius: var(--radius-medium);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    box-shadow: var(--shadow-strong);
+}
+
+/* === 💡 Tooltips === */
+.tooltip__01384 {
+    background: rgba(0, 0, 0, 0.9) !important;
+    border-radius: var(--radius-small);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+/* === 🎶 Mini-lecteur Spotify === */
+.container__3673d {
+    background: rgba(17, 20, 35, 0.85) !important;
+    border-radius: var(--radius-large);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    box-shadow: var(--shadow-soft);
+}

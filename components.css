@@ -1,224 +1,126 @@
-/* =========================
-   LUNA THEME — COMPONENTS
-   Messages, boutons, inputs, popouts, tooltips, profiles, etc.
-   ========================= */
+/**
+ * Luna Theme - Components
+ * Styles appliqués aux messages, boutons, inputs, cartes, mentions, etc.
+ */
 
-/* ========== Messages ========== */
-[id^="chat-messages"], [class*="chatContent"] [class*="message"],
-[class*="messageContainer"], [class*="messageListItem"], [class*="message"] {
-  border-radius: var(--message-radius) !important;
-  background: rgba(22, 28, 45, 0.46) !important;
-  margin: 4px 8px !important;
-  padding: 6px 10px !important;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.12);
+/* === 💬 Messages === */
+.message__80c6a {
+    border-radius: var(--radius-large) !important;
+    background: rgba(22, 28, 45, 0.45) !important;
+    margin-bottom: 6px;
+    padding: 8px 12px;
+    transition: background var(--transition-fast);
 }
-
-/* Bullles / contenus internes */
-[class*="message"] [class*="contents"], [class*="messageContent"] {
-  border-radius: calc(var(--message-radius) - 6px) !important;
+.message__80c6a:hover {
+    background: rgba(30, 41, 59, 0.55) !important;
 }
 
-/* Mentions dans messages */
-[class*="mentioned"] {
-  background: var(--mention-background) !important;
-  box-shadow: inset 2px 0 0 0 var(--brand-experiment-560);
+/* === 👤 Mentions @user === */
+.mention {
+    background: var(--mention-bg) !important;
+    border: 1px solid var(--mention-border) !important;
+    color: var(--mention-text) !important;
+    border-radius: var(--radius-medium);
+    padding: 0 6px;
+    font-weight: 500;
 }
 
-/* Réponses / reply */
-[class*="repliedMessage"], [class*="replyBar"] {
-  background: rgba(59, 130, 246, 0.10) !important;
-  border-left: 2px solid var(--brand-experiment-560);
-  border-radius: 8px;
-  padding: 4px 8px;
+/* === #️⃣ Tags (ex: #général) === */
+.channelMention {
+    background: var(--tag-bg) !important;
+    border: 1px solid var(--tag-border);
+    color: var(--tag-text);
+    border-radius: var(--radius-medium);
+    padding: 0 5px;
 }
 
-/* Embeds / attach */
-[class*="embedWrapper"], [class*="attachment"], [class*="mediaContent"] {
-  background: rgba(13, 19, 35, 0.60) !important;
-  border: 1px solid rgba(59, 130, 246, 0.20);
-  border-radius: var(--card-radius);
-  overflow: hidden;
+/* === 🏷️ Badges (Nitro, Bot, Staff) === */
+.botTag {
+    background: var(--badge-bg) !important;
+    color: var(--badge-text) !important;
+    border-radius: var(--radius-small);
+    padding: 0 4px;
+    font-size: 11px;
+    font-weight: 600;
 }
 
-/* Reactions */
-[class*="reactions"], [class*="reaction"] {
-  background: rgba(2, 6, 23, 0.45) !important;
-  border-radius: 9999px;
-  border: 1px solid rgba(59, 130, 246, 0.18);
+/* === 🔘 Boutons === */
+.button__66e8c {
+    border-radius: var(--radius-round) !important;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-active));
+    color: #fff !important;
+    height: var(--button-height);
+    padding: var(--button-padding);
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.button__66e8c:hover {
+    transform: scale(1.05);
+    box-shadow: var(--glow-accent);
+}
+.button__66e8c:active {
+    transform: scale(0.98);
 }
 
-/* ========== Barre d’écriture (Channel Text Area) ========== */
-[class*="channelTextArea"], [class*="scrollableContainer"] {
-  background: var(--channeltextarea-background) !important;
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  border-radius: 16px !important;
-  padding: 6px !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+/* === 📝 Inputs (barre de recherche, chat input) === */
+.input__0f084, .textArea__74543 {
+    background: var(--input-bg) !important;
+    border-radius: var(--radius-medium) !important;
+    border: 1px solid var(--input-border);
+    color: var(--color-text-normal);
+    padding: var(--input-padding);
+    height: var(--input-height);
+    transition: border var(--transition-fast);
+}
+.input__0f084:focus, .textArea__74543:focus {
+    border: 1px solid var(--color-accent);
+    box-shadow: var(--glow-accent);
 }
 
-/* Placeholder & texte */
-[class*="placeholder"] { color: #8aa0bf !important; }
-[class*="slateTextArea"], textarea, input { color: var(--text-normal) !important; }
-
-/* Boutons d’action (upload, gift, etc.) */
-[class*="buttons"], [class*="attachButton"] > * {
-  border-radius: 10px;
+/* === 📦 Cartes (profils, embeds, menus) === */
+.container__7c79d, .embedFull__8dc21 {
+    border-radius: var(--radius-large) !important;
+    background: rgba(15, 23, 42, 0.7);
+    box-shadow: var(--shadow-strong);
+    padding: 10px;
+    margin-bottom: 8px;
 }
 
-/* ========== Boutons ========== */
-button, [role="button"], [class*="button"] {
-  border-radius: 9999px !important;
-  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-}
-
-/* Primary / Brand */
-[class*="lookFilled"][class*="colorBrand"], [class*="colorBrand"][class*="button"] {
-  background-image: var(--accent) !important;
-  color: #fff !important;
-  border: 1px solid rgba(59, 130, 246, 0.32);
-}
-[class*="lookFilled"][class*="colorBrand"]:hover,
-[class*="colorBrand"][class*="button"]:hover {
-  transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 0 18px rgba(59, 130, 246, 0.55);
-}
-
-/* Secondary / subtil */
-[class*="lookFilled"][class*="colorGrey"], [class*="lookOutlined"], [class*="lookLink"] {
-  background: rgba(15, 23, 42, 0.55) !important;
-  color: var(--text-normal) !important;
-  border: 1px solid rgba(148, 163, 184, 0.18);
-}
-
-/* Danger */
-[class*="colorRed"] {
-  background: linear-gradient(135deg, #ef4444, #b91c1c) !important;
-  color: #fff !important;
-}
-
-/* ========== Inputs, Selects, Search ========== */
-input, textarea, [class*="searchBar"], [class*="searchInput"], [class*="input"],
-[class*="select"], [class*="lookFilled-"][class*="input"] {
-  border-radius: var(--input-height) !important;
-  background: rgba(15, 23, 42, 0.56) !important;
-  color: var(--text-normal) !important;
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-/* ========== Tooltips ========== */
-[class*="tooltip"] {
-  background: var(--tooltip-bg) !important;
-  color: var(--tooltip-fg) !important;
-  border-radius: var(--tooltip-radius) !important;
-  border: 1px solid rgba(148, 163, 184, 0.18);
-}
-
-/* ========== Popouts, Menus contextuels ========== */
-[class*="popout"], [class*="popOver"], [class*="contextMenu"], [class*="menu"] {
-  background: var(--background-floating) !important;
-  border-radius: var(--popout-radius) !important;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* Items de menu */
-[class*="menuItem"], [class*="item-"], [class*="option"] {
-  border-radius: 10px !important;
-}
-[class*="menuItem"]:hover, [class*="item-"]:hover, [class*="option"]:hover {
-  background: rgba(59, 130, 246, 0.18) !important;
-}
-
-/* ========== Modals, Dialogs ========== */
-[class*="modal"], [class*="root-"], [class*="container-"][class*="Root"] {
-  background: var(--background-floating) !important;
-  border-radius: 20px !important;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  padding: 10px;
-}
-
-/* ========== Sidebars / Channels / Guilds ========== */
-[class*="sidebar"], [class*="membersWrap"], [class*="members-"] {
-  background: rgba(13, 17, 28, 0.58) !important;
-  border-right: 1px solid rgba(59, 130, 246, 0.10);
-}
-
-/* Channels items (sélection/hover) */
-[role="treeitem"][aria-selected="true"], [class*="modeSelected"] {
-  background: rgba(59, 130, 246, 0.18) !important;
-  border-left: 2px solid var(--brand-experiment-560);
-  border-radius: 10px;
-}
-[role="treeitem"]:hover, [class*="modeSelected"]:hover {
-  background: rgba(59, 130, 246, 0.24) !important;
-}
-
-/* Listes membres */
-[class*="member"], [class*="member-"], [class*="layout-"] {
-  border-radius: 10px;
-}
-[class*="member"]:hover, [class*="layout-"]:hover {
-  background: rgba(59, 130, 246, 0.12);
-}
-
-/* ========== User popout & profile modal ========== */
-[class*="userPopout"], [class*="userProfileModal"], [class*="profilePanel"] {
-  background: rgba(11, 13, 23, 0.88) !important;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  border-radius: 20px !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-/* Avatar style */
-[class*="avatar"], [class*="avatarWrapper"] img {
-  border-radius: var(--avatar-radius) !important;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
-}
-
-/* ========== Images, Pièces jointes ========== */
-img, video, canvas, [class*="imageWrapper"] {
-  border-radius: var(--image-radius) !important;
-}
-
-/* ========== Barres 'Nouveaux messages' / 'Non lus' ========== */
-[class*="newMessagesBar"], [class*="unreadBar"] {
-  background: rgba(2, 6, 23, 0.70) !important;
-  color: var(--text-normal) !important;
-  border: 1px solid rgba(59, 130, 246, 0.22);
-  border-radius: 9999px;
-}
-
-/* ========== Scrollbars (déjà visibles) ========== */
+/* === 📜 Scrollbar === */
 ::-webkit-scrollbar {
-  width: var(--scrollbar-width);
-  height: var(--scrollbar-thin-width);
+    width: var(--scrollbar-width);
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #3b82f6, #1e40af);
-  border-radius: 10px;
-  border: 1px solid rgba(148, 163, 184, 0.18);
+    background: linear-gradient(180deg, var(--color-accent), var(--color-accent-active));
+    border-radius: var(--radius-medium);
 }
-::-webkit-scrollbar-track { background: transparent; }
-
-/* ========== Petits détails ========== */
-[class*="searchAnswer"], [class*="searchFilter"] {
-  background: rgba(59, 130, 246, 0.15) !important;
-  color: #e6f0ff !important;
-  border-radius: 10px;
+::-webkit-scrollbar-track {
+    background: transparent;
 }
 
-[class*="tabBar"] [class*="item"][aria-selected="true"] {
-  background: rgba(59, 130, 246, 0.18) !important;
-  color: #fff !important;
-  border-radius: 10px;
+/* === 🖼️ Avatars === */
+.avatar__991e2 {
+    border-radius: var(--avatar-radius) !important;
+    box-shadow: var(--shadow-soft);
 }
 
-/* Fin COMPONENTS — sélecteurs robustes, sans dépendre des classes obfusquées exactes */
+/* === 🔍 Barre de recherche === */
+.searchBar__621ec {
+    border-radius: var(--radius-large);
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    transition: border var(--transition-fast);
+}
+.searchBar__621ec:hover {
+    border-color: var(--color-accent);
+}
+
+/* === 💡 Tooltips === */
+.tooltip__01384 {
+    background: rgba(0,0,0,0.85) !important;
+    border-radius: var(--radius-small);
+    color: var(--color-text-inverse);
+    padding: 6px 10px;
+    font-size: 12px;
+    box-shadow: var(--shadow-soft);
+}
