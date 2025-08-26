@@ -1,18 +1,25 @@
+/**
+ * @name Spyware
+ * @author Toi
+ * @version 1.0.0
+ * @description Plugin Vencord : ajoute un éditeur de code dans la catégorie Spyware
+ */
+
 const { Plugin } = window.Vencord;
 const React = window.React;
 
-class CuteCodePlugin extends Plugin {
+class Spyware extends Plugin {
     onStart() {
-        console.log("CuteCodePlugin démarré !");
-        this.injectSettings();
+        console.log("Spyware démarré !");
+        this.addSpywareSettings();
     }
 
     onStop() {
-        console.log("CuteCodePlugin arrêté !");
+        console.log("Spyware arrêté !");
     }
 
-    injectSettings() {
-        const SettingsPanel = () => {
+    addSpywareSettings() {
+        const SpywarePanel = () => {
             const [code, setCode] = React.useState("");
 
             const handleFileImport = (e) => {
@@ -29,8 +36,8 @@ class CuteCodePlugin extends Plugin {
                 { style: { padding: "10px" } },
                 React.createElement(
                     "h3",
-                    { style: { fontFamily: "Pangolin", color: "#925560" } },
-                    "💻 Éditeur de code"
+                    { style: { fontFamily: "Pangolin", color: "#ff69b4" } },
+                    "💻 Spyware Editor"
                 ),
                 React.createElement("textarea", {
                     style: {
@@ -40,7 +47,7 @@ class CuteCodePlugin extends Plugin {
                         fontSize: "14px",
                         backgroundColor: "rgba(255,255,255,0.05)",
                         color: "#F7DFFF",
-                        border: "1px solid #925560",
+                        border: "1px solid #ff69b4",
                         borderRadius: "6px",
                         padding: "5px",
                         resize: "vertical",
@@ -63,8 +70,9 @@ class CuteCodePlugin extends Plugin {
             );
         };
 
-        this.addSettingPanel("Cute Code", SettingsPanel);
+        // Ajoute la section Spyware dans la catégorie Vencord
+        this.addSettingPanel("Spyware", SpywarePanel);
     }
 }
 
-module.exports = CuteCodePlugin;
+module.exports = Spyware;
