@@ -1,78 +1,72 @@
-/**
- * @name Spyware
- * @author Toi
- * @version 1.0.0
- * @description Plugin Vencord : ajoute un éditeur de code dans la catégorie Spyware
- */
+(() => {
+    const React = window.React;
+    const Vencord = window.Vencord;
+    if (!React || !Vencord) return;
 
-const { Plugin } = window.Vencord;
-const React = window.React;
+    class SpywarePlugin {
+        constructor() {
+            this.code = "";
+        }
 
-class Spyware extends Plugin {
-    onStart() {
-        console.log("Spyware démarré !");
-        this.addSpywareSettings();
-    }
+        start() {
+            console.log("Spyware chargé via thème !");
+            this.addPanel();
+        }
 
-    onStop() {
-        console.log("Spyware arrêté !");
-    }
+        addPanel() {
+            const SettingsPanel = () => {
+                const [code, setCode] = React.useState("");
 
-    addSpywareSettings() {
-        const SpywarePanel = () => {
-            const [code, setCode] = React.useState("");
+                const handleFileImport = (e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = () => setCode(reader.result);
+                        reader.readAsText(file);
+                    }
+                };
 
-            const handleFileImport = (e) => {
-                const file = e.target.files?.[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = () => setCode(reader.result);
-                    reader.readAsText(file);
-                }
+                return React.createElement(
+                    "div",
+                    { style: { padding: "10px" } },
+                    React.createElement("h3", { style: { color: "#ff69b4", fontFamily: "Pangolin" } }, "💻 Spyware Editor"),
+                    React.createElement("textarea", {
+                        value: code,
+                        onChange: (e) => setCode(e.target.value),
+                        style: {
+                            width: "100%",
+                            height: "200px",
+                            fontFamily: "Consolas",
+                            fontSize: "14px",
+                            backgroundColor: "rgba(255,255,255,0.05)",
+                            color: "#F7DFFF",
+                            border: "1px solid #ff69b4",
+                            borderRadius: "6px",
+                            padding: "5px",
+                        },
+                        placeholder: "Écris ton code ici..."
+                    }),
+                    React.createElement("input", {
+                        type: "file",
+                        accept: ".txt,.js,.ts",
+                        onChange: handleFileImport,
+                        style: {
+                            marginTop: "10px",
+                            padding: "5px",
+                            borderRadius: "5px",
+                            cursor: "pointer",
+                        }
+                    })
+                );
             };
 
-            return React.createElement(
-                "div",
-                { style: { padding: "10px" } },
-                React.createElement(
-                    "h3",
-                    { style: { fontFamily: "Pangolin", color: "#ff69b4" } },
-                    "💻 Spyware Editor"
-                ),
-                React.createElement("textarea", {
-                    style: {
-                        width: "100%",
-                        height: "200px",
-                        fontFamily: "Consolas",
-                        fontSize: "14px",
-                        backgroundColor: "rgba(255,255,255,0.05)",
-                        color: "#F7DFFF",
-                        border: "1px solid #ff69b4",
-                        borderRadius: "6px",
-                        padding: "5px",
-                        resize: "vertical",
-                    },
-                    value: code,
-                    onChange: (e) => setCode(e.target.value),
-                    placeholder: "Écris ton code ici..."
-                }),
-                React.createElement("input", {
-                    type: "file",
-                    accept: ".txt,.js,.ts",
-                    onChange: handleFileImport,
-                    style: {
-                        marginTop: "10px",
-                        padding: "5px",
-                        borderRadius: "5px",
-                        cursor: "pointer",
-                    }
-                })
-            );
-        };
-
-        // Ajoute la section Spyware dans la catégorie Vencord
-        this.addSettingPanel("Spyware", SpywarePanel);
+            // Injecter dans les paramètres Vencord (catégorie Plugins)
+            if (Vencord.addSettingPanel) {
+                Vencord.addSettingPanel("Spyware", SettingsPanel);
+            }
+        }
     }
-}
 
-module.exports = Spyware;
+    const spyware = new SpywarePlugin();
+    spyware.start();
+})();
