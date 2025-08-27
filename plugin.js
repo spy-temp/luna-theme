@@ -33,7 +33,7 @@ class Spyware extends Plugin {
 
             return React.createElement(
                 "div",
-                { style: { padding: "10px", backgroundColor: "rgba(255,192,203,0.05)", borderRadius: "10px" } },
+                { style: { padding: "15px", borderRadius: "10px", backgroundColor: "rgba(255,192,203,0.05)" } },
                 React.createElement(
                     "h3",
                     { style: { fontFamily: "Pangolin", color: "#ff69b4", marginBottom: "10px" } },
@@ -75,7 +75,7 @@ class Spyware extends Plugin {
             );
         };
 
-        // Ajoute la section Spyware dans Vencord
+        // Ajoute la section Spyware dans les paramètres Vencord
         this.addSettingPanel("Spyware", SpywarePanel);
     }
 }
